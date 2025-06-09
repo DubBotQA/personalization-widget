@@ -1,0 +1,24 @@
+<div data-controller="widget" class="personalization-widget">
+  <button class="btn btn-primary rounded-circle toggle-btn" data-action="click->widget#toggle">
+    ⚙️
+  </button>
+
+  <div class="card options-panel" data-widget-target="panel">
+    <div class="card-header d-flex justify-content-between align-items-center">
+      <strong>Personalization Options</strong>
+      <button class="btn-close" data-action="click->widget#toggle"></button>
+    </div>
+    <div class="card-body">
+      <div class="mb-3">
+        <label for="font-select" class="form-label">Font</label>
+        <select id="font-select" class="form-select" data-action="change->widget#changeFont">
+          <option value="default">Default</option>
+          <option value="sans">Sans-serif</option>
+          <option value="serif">Serif</option>
+          <option value="opendyslexic">OpenDyslexic</option>
+        </select>
+      </div>
+    </div>
+  </div>
+</div>
+

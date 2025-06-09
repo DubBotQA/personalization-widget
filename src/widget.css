@@ -1,0 +1,22 @@
+.personalization-widget {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  z-index: 9999;
+}
+
+.toggle-btn {
+  width: 3rem;
+  height: 3rem;
+}
+
+.options-panel {
+  display: none;
+  width: 300px;
+  margin-top: 0.5rem;
+}
+
+.options-panel.show {
+  display: block;
+}
+
