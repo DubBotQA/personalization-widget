@@ -1,0 +1,10 @@
+/* page overrides */
+body.dubbot-site-root,
+body.dubbot-site-root *::before,
+body.dubbot-site-root *::after {
+  font-size:      var(--db-font-size,      inherit);
+  font-family:    var(--db-font-family,    inherit);
+  letter-spacing: var(--db-letter-spacing, normal);
+  word-spacing:   var(--db-word-spacing,   normal);
+  line-height:    var(--db-line-height,    normal);
+}

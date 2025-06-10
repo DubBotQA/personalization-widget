@@ -1,32 +1,97 @@
 import { Controller } from '@hotwired/stimulus';
-export default class extends Controller {
-  static targets = ['panel'];
+import Preferences from '../preferences.js';
+import { getConfig } from '../config.js';
+import { hexToRgb } from '../helpers/hex_to_rgb.js';
 
-  connect() {
-    this.fonts = {
-      default: '',
-      sans: 'Arial, sans-serif',
-      serif: 'Georgia, serif',
-      opendyslexic: '"Open-Dyslexic", Arial, sans-serif'
-    };
+export default class extends Controller {
+  static targets = ['button', 'card', 'title', 'description', 'controllers'];
+
+  async connect() {
+    this.config = await getConfig();
+
+    // we can't async the stimulus init function
+    // and we need the configuration for the UI init
+    // and only want the UI to initialize once
+    if(!this.initialized) {
+      this.initUI();
+    }
+
+    this.activateOverrides();
+  }
+
+  initUI() {
+    this.buttonTarget.innerHTML = this.config.ui.buttonIcon;
+
+    this.cardTarget.style.width = this.config.ui.width;
+    this.titleTarget.innerText = this.config.ui.title;
+    this.descriptionTarget.innerText = this.config.ui.description;
+
+    this.initTheme();
+    this.initControllerUIs();
+    this.initialized = true
+  }
+
+  initTheme() {
+    const style = document.createElement('style');
+    const theme = this.config.ui.theme;
+    const cssVars = [];
+
+    // set color CSS variables
+    const colors = theme.colors || {};
+    for (const [key, value] of Object.entries(colors)) {
+      const dbKey = `--db-colors-${key}`;
+      const bsKey = `--bs-${key}`;
+      const rgb = hexToRgb(value)
+      cssVars.push(`${dbKey}: ${value}`);
+      cssVars.push(`${dbKey}-rgb: ${hexToRgb(value)}`);
+      cssVars.push(`${bsKey}: var(${dbKey})`);
+      cssVars.push(`${bsKey}-rgb: var(${dbKey}-rgb)`);
+    }
+
+    style.textContent = `:host { ${cssVars.join(';\n')}; }`;
+    this.element.appendChild(style);
+  }
+
+  initControllerUIs() {
+    const fragmentModules = import.meta.glob('../ui/*.html', { as: 'raw', eager: true });
+    this.config.show.forEach((controller) => {
+      const path = `../ui/${controller}.html`;
+      const html = fragmentModules[path];
+
+      if(!html) { return } // if there's no HTML, then move on
+
+      const wrapper = document.createElement('div');
+      wrapper.innerHTML = html;
+      this.controllersTarget.appendChild(wrapper.firstElementChild);
+    });
+  }
+
+  activateOverrides() {
+    const root = document.body;
+    if (!root.classList.contains('dubbot-site-root')) {
+      root.classList.add('dubbot-site-root');
+    }
   }
 
   toggle() {
-    this.panelTarget.classList.toggle('show');
+    this.cardTarget.classList.toggle('show');
   }
 
-  changeFont(event) {
-    const value = event.target.value;
-    if (value === 'opendyslexic') this.loadOpenDyslexic();
-    document.body.style.fontFamily = this.fonts[value];
-  }
+  reset() {
+    // remove our junk from the main doc
+    const root = document.body;
+    root.classList.remove('dubbot-site-root');
 
-  loadOpenDyslexic() {
-    if (document.getElementById('opendyslexic-font')) return;
-    const link = document.createElement('link');
-    link.id = 'opendyslexic-font';
-    link.rel = 'stylesheet';
-    link.href = 'https://fonts.cdnfonts.com/css/open-dyslexic';
-    document.head.appendChild(link);
+    // clear all preferences
+    Preferences.reset();
+
+    // reconnect all controllers
+    const controllers = this.application.controllers;
+    controllers.forEach((controller) => {
+      if (controller.disconnect && controller.connect) {
+        controller.disconnect();
+        controller.connect();
+      }
+    });
   }
 }

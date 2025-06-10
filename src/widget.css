@@ -1,8 +1,91 @@
-.personalization-widget {
+/* widget styling */
+
+:host {
+  all: initial;
   position: fixed;
   bottom: 1rem;
   right: 1rem;
   z-index: 9999;
+
+  /* theme overrides */
+  --bs-body-bg: var(--db-colors-background);
+  --bs-body-color: var(--db-colors-bodyFont);
+  --bs-body-color-rgb: var(--db-colors-bodyFont-rgb);
+
+  --bs-button-color: var(--db-colors-primary-rgb);
+
+  --bs-border-radius: 0;
+}
+
+/* bootstrap overrides */
+.btn-primary {
+  color: var(--db-colors-primaryFont);
+  background-color: var(--db-colors-primary);
+  border: none;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: hsl(from var(--db-colors-primary) h calc(s + 30) calc(l - 30));
+  color: var(--db-colors-primaryFont)
+  border: none;
+}
+
+.btn-secondary {
+  color: var(--db-colors-secondaryFont);
+  background-color: var(--db-colors-secondary);
+  border: none;
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus {
+  background-color: hsl(from var(--db-colors-secondary) h calc(s + 30) calc(l - 30));
+  color: var(--db-colors-secondaryFont)
+  border: none;
+}
+
+.card {
+  --bs-card-cap-color: var(--db-colors-secondaryFont);
+  --bs-card-cap-bg: var(--db-colors-primary);
+  --bs-card-cap-bg-rgb: var(--db-colors-primary-rgb);
+}
+
+.form-range::-webkit-slider-thumb {
+  background-color: var(--db-colors-primary);
+}
+
+.form-range::-moz-range-thumb  {
+  background-color: var(--db-colors-primary);
+}
+
+.close-button {
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  line-height: 1;
+  color: var(--db-colors-secondaryFont, #000);
+  cursor: pointer;
+  padding: 0;
+  font-family: monospace;
+  padding: var(--bs-btn-padding-y) var(--bs-btn-padding-x);
+  background-color: var(--db-colors-secondary);
+}
+
+.close-button:hover,
+.close-button:focus {
+  background-color: hsl(from var(--db-colors-secondary) h calc(s + 30) calc(l - 30));
+  color: var(--db-colors-secondaryFont)
+}
+
+.personalization-widget {
+  /* Only isolate outer container */
+  font-family: var(--bs-body-font-family), sans-serif;
+}
+
+.personalization-widget button,
+.personalization-widget select,
+.personalization-widget input {
+  font-family: inherit;
 }
 
 .toggle-btn {
@@ -12,11 +95,9 @@
 
 .options-panel {
   display: none;
-  width: 300px;
-  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
 .options-panel.show {
   display: block;
 }
-
