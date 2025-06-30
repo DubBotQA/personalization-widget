@@ -3,7 +3,7 @@ export default {
     lib: {
       entry: 'src/main.js',
       name: 'DubbotPersonalizationWidget',
-      fileName: () => 'widget.bundle.js',
+      fileName: () => 'db-personalization-widget.bundle.js',
       formats: ['iife']
     }
   }

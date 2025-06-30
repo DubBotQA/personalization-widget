@@ -1,28 +1,58 @@
 import html from './widget.html?raw';
-import css from './widget.css?raw';
+import widgetCSS from './widget.css?raw';
+import pageOverridesCSS from './page-overrides.css?raw';
+import bootstrapCSS from 'bootstrap/dist/css/bootstrap.min.css?raw';
 import { Application } from '@hotwired/stimulus';
-import WidgetController from './controllers/widget_controller.js';
 
 function injectWidget() {
-  // Load Bootstrap CSS
-  const bootstrap = document.createElement('link');
-  bootstrap.rel = 'stylesheet';
-  bootstrap.href = 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css';
-  document.head.appendChild(bootstrap);
+
+  // Inject the page overrides CSS to main doc
+  const pageStyle = document.createElement('style');
+  pageStyle.id = 'dubbot-page-overrides';
+  pageStyle.textContent = pageOverridesCSS;
+  document.head.appendChild(pageStyle);
+
+  // Create host and attach shadow root
+  const host = document.createElement('div');
+  host.id = 'dubbot-personalization-widget';
+  const shadow = host.attachShadow({ mode: 'open' });
+  document.body.appendChild(host);
+
+  // Inject Bootstrap CSS
+  const bootstrap = document.createElement('style');
+  bootstrap.textContent = bootstrapCSS;
+  shadow.appendChild(bootstrap)
+  copyBootstrapVarsToHost(shadow);
 
   // Inject widget CSS
   const style = document.createElement('style');
-  style.textContent = css;
-  document.head.appendChild(style);
+  style.textContent = widgetCSS;
+  shadow.appendChild(style);
 
   // Inject widget HTML
   const container = document.createElement('div');
+  container.id = 'db-widget-root';
   container.innerHTML = html;
-  document.body.appendChild(container);
+  shadow.appendChild(container);
+
+
+  const widgetRoot = shadow.getElementById('db-widget-root');
 
   // Start Stimulus
-  const app = Application.start();
-  app.register('widget', WidgetController);
+  const app = Application.start(widgetRoot);
+
+  // Dynamically import and register all controllers
+  const controllerModules = import.meta.glob('./controllers/*_controller.js', { eager: true });
+  for (const path in controllerModules) {
+    const module = controllerModules[path];
+    const controller = module.default;
+
+    const match = path.match(/\.\/controllers\/(.*)_controller\.js$/);
+    if (!match) continue;
+
+    const identifier = match[1].replace(/_/g, '-'); // e.g. change_font_size -> change-font-size
+    app.register(identifier, controller);
+  }
 }
 
 if (document.readyState === 'loading') {
@@ -31,3 +61,27 @@ if (document.readyState === 'loading') {
   injectWidget();
 }
 
+// Bootstrap dumps their variables in :root,
+// but the shadow DOM does not have :root.
+// It has :host. This function copies those
+// :root styles to :host
+function copyBootstrapVarsToHost(shadowRoot) {
+  const styleSheets = shadowRoot.styleSheets;
+
+  for (const sheet of styleSheets) {
+    try {
+      const rules = sheet.cssRules || [];
+
+      for (const rule of rules) {
+        if (rule.selectorText.startsWith(':root')) {
+          const style = document.createElement('style');
+          style.textContent = rule.cssText.replace(':root', ':host');
+          shadowRoot.appendChild(style);
+          return;
+        }
+      }
+    } catch (err) {
+      console.warn('[DubBot Personalization Widget] Could not access stylesheet:', err);
+    }
+  }
+}
