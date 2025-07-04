@@ -4,11 +4,50 @@
     <meta charset="UTF-8" />
     <title>Dubbot Personalization Widget</title>
     <script type="module" src="/src/main.js"></script>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+      }
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+      .mt-5 {
+        margin-top: 3rem;
+      }
+    </style>
   </head>
   <body>
     <div class="container mt-5">
-      <h1>Hello from the host page</h1>
-      <p>This is some page content. The widget should appear in the bottom corner.</p>
+      <h1>Personalization Widget Demo</h1>
+      <p>This is a demonstration of the accessibility personalization widget. The widget should appear in the bottom corner.</p>
+
+      <h2>Test Different Content Types</h2>
+      <p>This paragraph contains regular text to test font family, size, and spacing adjustments.</p>
+
+      <div style="background-color: #f0f0f0; padding: 15px; margin: 20px 0;">
+        <h3>Different Background</h3>
+        <p>This section has a different background color to test contrast adjustments.</p>
+      </div>
+
+      <div style="background-color: #003366; color: white; padding: 15px; margin: 20px 0;">
+        <h3>Dark Section</h3>
+        <p>This section has a dark background with white text to test various contrast modes.</p>
+      </div>
+
+      <ul>
+        <li>List item one</li>
+        <li>List item two</li>
+        <li>List item three</li>
+      </ul>
+
+      <a href="#" style="color: blue;">This is a test link</a>
+
+      <p><strong>Bold text</strong> and <em>italic text</em> for testing.</p>
     </div>
   </body>
 </html>

@@ -82,6 +82,19 @@ export default class extends Controller {
     const root = document.body;
     root.classList.remove('dubbot-site-root');
 
+    // remove all contrast classes
+    const contrastClasses = [
+      'db-dark-mode',
+      'db-high-contrast',
+      'db-inverted'
+    ];
+    contrastClasses.forEach(cls => {
+      root.classList.remove(cls);
+    });
+
+    // clear inline styles that might have been applied
+    root.style.filter = '';
+
     // clear all preferences
     Preferences.reset();
 

@@ -43,7 +43,8 @@ Example JSON config:
     },
     "show": [
         "change_font_family",
-        "change_font_size"
+        "change_font_size",
+        "change_color_contrast"
     ]
 }
 ```
@@ -51,9 +52,28 @@ This example:
 - Adds the Comic Sans font to the font family dropdown.
 - Updates the title and description inside the widget
 - Updates the primary, body font, and primary font colors.
-- Shows only the `change_font_family` and `change_font_size` controls
+- Shows only the `change_font_family`, `change_font_size`, and `change_color_contrast` controls
 
 When no configuration is provided, the widget will use the default configuration (see `defaultConfig` in `src/config.js`).
+
+## Features
+
+The Personalization Widget currently provides the following accessibility options:
+
+- **Font Family Selection**: Choose from Sans Serif, Serif, OpenDyslexic, and other font options
+- **Font Size Adjustment**: Scale text from 100% to 500% in 25% increments
+- **Letter Spacing Control**: Adjust letter spacing from 0px to 5px for improved readability
+- **Color Contrast Options**: Apply visual filters including:
+  - High Contrast mode
+  - Inverted Colors
+  - Dark Mode
+  - Dark High Contrast
+  - Sepia tone
+  - Grayscale
+
+  *Note: All visual filters are applied to page content while keeping the widget itself unaffected for optimal usability.*
+- **Persistent Settings**: User preferences are saved and restored across sessions
+- **Configurable Interface**: Customize appearance and available options via JSON configuration
 
 ## Development & Contributing
 

@@ -12,6 +12,17 @@ const defaultConfig = {
   },
   fontSize: { default: 100, min: 100, max: 500, step: 25 },
   letterSpacing: { default: 0, min: 0, max: 5, step: 1 },
+  colorContrast: {
+    options: {
+      default: { label: 'Default', css: '', class: '' },
+      high: { label: 'High Contrast', css: 'contrast(1.5)', class: 'db-high-contrast' },
+      inverted: { label: 'Inverted Colors', css: '', class: 'db-inverted' },
+      darkMode: { label: 'Dark Mode', css: '', class: 'db-dark-mode' },
+      darkHighContrast: { label: 'Dark High Contrast', css: 'contrast(1.3)', class: 'db-dark-mode' },
+      sepia: { label: 'Sepia', css: 'sepia(0.8)', class: '' },
+      grayscale: { label: 'Grayscale', css: 'grayscale(1)', class: '' }
+    }
+  },
   ui: {
     title: "Personalization Options",
     description: "Personalize your web experience with these tools.",
@@ -36,7 +47,8 @@ const defaultConfig = {
   show: [
     'change_font_family',   // displays each controller in this order
     'change_font_size',     // names match files in src/controllers/ and src/ui/
-    'change_letter_spacing' // e.g. src/controllers/change_font_size_controller.js and src/ui/change_font_size.html
+    'change_letter_spacing', // e.g. src/controllers/change_font_size_controller.js and src/ui/change_font_size.html
+    'change_color_contrast' // color contrast and theme options
   ]
 };
 

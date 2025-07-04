@@ -8,3 +8,89 @@ body.dubbot-site-root *::after {
   word-spacing:   var(--db-word-spacing,   normal);
   line-height:    var(--db-line-height,    normal);
 }
+
+/* Dark Mode Styles */
+body.db-dark-mode {
+  background-color: #1a1a1a !important;
+  color: #e0e0e0 !important;
+}
+
+/* Apply dark mode to all elements except the widget itself */
+body.db-dark-mode *:not(#dubbot-personalization-widget *):not(#dubbot-personalization-widget) {
+  background-color: transparent !important;
+  color: inherit !important;
+}
+
+/* Headings should be brighter in dark mode */
+body.db-dark-mode h1,
+body.db-dark-mode h2,
+body.db-dark-mode h3,
+body.db-dark-mode h4,
+body.db-dark-mode h5,
+body.db-dark-mode h6 {
+  color: #ffffff !important;
+}
+
+/* Links should be bright blue in dark mode */
+body.db-dark-mode a {
+  color: #66b3ff !important;
+}
+
+body.db-dark-mode a:hover {
+  color: #4da6ff !important;
+}
+
+body.db-dark-mode a:visited {
+  color: #9d4edd !important;
+}
+
+/* Handle elements with inline background styles */
+body.db-dark-mode [style*="background-color"] {
+  background-color: #2d2d2d !important;
+  color: #e0e0e0 !important;
+}
+
+/* Handle specific background colors from the demo */
+body.db-dark-mode [style*="background-color:#f0f0f0"] {
+  background-color: #2d2d2d !important;
+  color: #e0e0e0 !important;
+}
+
+body.db-dark-mode [style*="background-color:#003366"] {
+  background-color: #0d1929 !important;
+  color: #e0e0e0 !important;
+}
+
+/* Handle other common light backgrounds */
+body.db-dark-mode [style*="background-color: #f0f0f0"],
+body.db-dark-mode [style*="background-color:white"],
+body.db-dark-mode [style*="background-color: white"],
+body.db-dark-mode [style*="background-color:#fff"],
+body.db-dark-mode [style*="background-color: #fff"],
+body.db-dark-mode [style*="background-color:#ffffff"],
+body.db-dark-mode [style*="background-color: #ffffff"] {
+  background-color: #2d2d2d !important;
+  color: #e0e0e0 !important;
+}
+
+/* Ensure borders are visible in dark mode */
+body.db-dark-mode * {
+  border-color: #404040 !important;
+}
+
+/* Inverted Colors Mode - Matches PageAssist approach exactly */
+body.db-inverted {
+  background-color: #000000 !important; /* Set black background */
+}
+
+/* Invert all body children except the widget (PageAssist style) */
+body.db-inverted > *:not(#dubbot-personalization-widget) {
+  filter: invert(1) !important;
+}
+
+/* Keep the widget readable by not inverting it */
+body.db-inverted #dubbot-personalization-widget {
+  filter: none !important;
+}
+
+
