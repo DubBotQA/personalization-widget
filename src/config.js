@@ -12,6 +12,13 @@ const defaultConfig = {
   },
   fontSize: { default: 100, min: 100, max: 500, step: 25 },
   letterSpacing: { default: 0, min: 0, max: 5, step: 1 },
+  cursorSize: {
+    options: {
+      default: { label: 'Default', css: '', class: '' },
+      large: { label: 'Large', css: '', class: 'db-cursor-large' },
+      extraLarge: { label: 'Extra Large', css: '', class: 'db-cursor-extra-large' }
+    }
+  },
   colorContrast: {
     options: {
       default: { label: 'Default', css: '', class: '' },
@@ -48,6 +55,7 @@ const defaultConfig = {
     'change_font_family',   // displays each controller in this order
     'change_font_size',     // names match files in src/controllers/ and src/ui/
     'change_letter_spacing', // e.g. src/controllers/change_font_size_controller.js and src/ui/change_font_size.html
+    'change_cursor_size',   // cursor size options
     'change_color_contrast' // color contrast and theme options
   ]
 };

@@ -63,6 +63,7 @@ The Personalization Widget currently provides the following accessibility option
 - **Font Family Selection**: Choose from Sans Serif, Serif, OpenDyslexic, and other font options
 - **Font Size Adjustment**: Scale text from 100% to 500% in 25% increments
 - **Letter Spacing Control**: Adjust letter spacing from 0px to 5px for improved readability
+- **Cursor Size Options**: Choose from Default, Large, and Extra Large cursor sizes for improved visibility
 - **Color Contrast Options**: Apply visual filters including:
   - High Contrast mode
   - Inverted Colors

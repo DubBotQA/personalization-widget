@@ -93,4 +93,131 @@ body.db-inverted #dubbot-personalization-widget {
   filter: none !important;
 }
 
+/* Cursor Size Options - Arrow cursor for general use */
+body.db-cursor-large * {
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28" width="42" height="42"><polygon fill="white" points="8.2,20.9 8.2,4.9 19.8,16.5 13,16.5 12.6,16.6"/><polygon fill="white" points="17.3,21.6 13.7,23.1 9,12 12.7,10.5"/><rect x="12.5" y="13.6" transform="matrix(0.9221 -0.3871 0.3871 0.9221 -5.7605 6.5909)" width="2" height="8"/><polygon points="9.2,7.3 9.2,18.5 12.2,15.6 12.6,15.5 17.4,15.5"/></svg>') 12 7, auto !important;
+}
+
+/* Hand cursor for interactive elements */
+body.db-cursor-large a,
+body.db-cursor-large button,
+body.db-cursor-large input[type="button"],
+body.db-cursor-large input[type="submit"],
+body.db-cursor-large input[type="reset"],
+body.db-cursor-large select,
+body.db-cursor-large [role="button"],
+body.db-cursor-large [onclick],
+body.db-cursor-large .btn,
+body.db-cursor-large input[type="range"] {
+  cursor: url('data:image/svg+xml;utf8,<svg width="42px" height="42px" viewBox="0 0 16 17" xmlns="http://www.w3.org/2000/svg"><path d="M3.3315,12.3799 C3.0475,12.0209 2.7025,11.2869 2.0885,10.3959 C1.7405,9.8919 0.8775,8.9429 0.6205,8.4609 C0.3975,8.0349 0.4215,7.8439 0.4745,7.4909 C0.5685,6.8629 1.2125,6.3739 1.8995,6.4399 C2.4185,6.4889 2.8585,6.8319 3.2545,7.1559 C3.4935,7.3509 3.7875,7.7299 3.9645,7.9439 C4.1275,8.1399 4.1675,8.2209 4.3415,8.4529 C4.5715,8.7599 4.6435,8.9119 4.5555,8.5739 C4.4845,8.0779 4.3685,7.2309 4.2005,6.4819 C4.0725,5.9139 4.0415,5.8249 3.9195,5.3889 C3.7905,4.9249 3.7245,4.5999 3.6035,4.1079 C3.5195,3.7599 3.3685,3.0489 3.3275,2.6489 C3.2705,2.1019 3.2405,1.2099 3.5915,0.7999 C3.8665,0.4789 4.4975,0.3819 4.8885,0.5799 C5.4005,0.8389 5.6915,1.5829 5.8245,1.8799 C6.0635,2.4139 6.2115,3.0309 6.3405,3.8409 C6.5045,4.8719 6.8065,6.3029 6.8165,6.6039 C6.8405,6.2349 6.7485,5.4579 6.8125,5.1039 C6.8705,4.7829 7.1405,4.4099 7.4785,4.3089 C7.7645,4.2239 8.0995,4.1929 8.3945,4.2539 C8.7075,4.3179 9.0375,4.5419 9.1605,4.7529 C9.5225,5.3769 9.5295,6.6519 9.5445,6.5839 C9.6305,6.2079 9.6155,5.3549 9.8285,4.9999 C9.9685,4.7659 10.3255,4.5549 10.5155,4.5209 C10.8095,4.4689 11.1705,4.4529 11.4795,4.5129 C11.7285,4.5619 12.0655,4.8579 12.1565,4.9999 C12.3745,5.3439 12.4985,6.3169 12.5355,6.6579 C12.5505,6.7989 12.6095,6.2659 12.8285,5.9219 C13.2345,5.2829 14.6715,5.1589 14.7265,6.5609 C14.7515,7.2149 14.7465,7.1849 14.7465,7.6249 C14.7465,8.1419 14.7345,8.4529 14.7065,8.8269 C14.6755,9.2269 14.5895,10.1309 14.4645,10.5689 C14.3785,10.8699 14.0935,11.5469 13.8125,11.9529 C13.8125,11.9529 12.7385,13.2029 12.6215,13.7659 C12.5035,14.3279 12.5425,14.3319 12.5195,14.7309 C12.4965,15.1289 12.6405,15.6529 12.6405,15.6529 C12.6405,15.6529 11.8385,15.7569 11.4065,15.6879 C11.0155,15.6249 10.5315,14.8469 10.4065,14.6089 C10.2345,14.2809 9.8675,14.3439 9.7245,14.5859 C9.4995,14.9689 9.0155,15.6559 8.6735,15.6989 C8.0055,15.7829 6.6195,15.7299 5.5345,15.7189 C5.5345,15.7189 5.7195,14.7079 5.3075,14.3609 C5.0025,14.1019 4.4775,13.5769 4.1635,13.3009 L3.3315,12.3799 Z" fill="white" stroke="black" stroke-width="0.75"/><path d="M11.5664,12.7344 L11.5664,9.2754" stroke="black" stroke-width="0.75"/><path d="M9.5508,12.7461 L9.5348,9.2731" stroke="black" stroke-width="0.75"/><path d="M7.5547,9.3047 L7.5757,12.7307" stroke="black" stroke-width="0.75"/></svg>') 5 0, pointer !important;
+}
+
+body.db-cursor-extra-large * {
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28" width="56" height="56"><polygon fill="white" points="8.2,20.9 8.2,4.9 19.8,16.5 13,16.5 12.6,16.6"/><polygon fill="white" points="17.3,21.6 13.7,23.1 9,12 12.7,10.5"/><rect x="12.5" y="13.6" transform="matrix(0.9221 -0.3871 0.3871 0.9221 -5.7605 6.5909)" width="2" height="8"/><polygon points="9.2,7.3 9.2,18.5 12.2,15.6 12.6,15.5 17.4,15.5"/></svg>') 16 10, auto !important;
+}
+
+/* Hand cursor for interactive elements */
+body.db-cursor-extra-large a,
+body.db-cursor-extra-large button,
+body.db-cursor-extra-large input[type="button"],
+body.db-cursor-extra-large input[type="submit"],
+body.db-cursor-extra-large input[type="reset"],
+body.db-cursor-extra-large select,
+body.db-cursor-extra-large [role="button"],
+body.db-cursor-extra-large [onclick],
+body.db-cursor-extra-large .btn,
+body.db-cursor-extra-large input[type="range"] {
+  cursor: url('data:image/svg+xml;utf8,<svg width="56px" height="56px" viewBox="0 0 16 17" xmlns="http://www.w3.org/2000/svg"><path d="M3.3315,12.3799 C3.0475,12.0209 2.7025,11.2869 2.0885,10.3959 C1.7405,9.8919 0.8775,8.9429 0.6205,8.4609 C0.3975,8.0349 0.4215,7.8439 0.4745,7.4909 C0.5685,6.8629 1.2125,6.3739 1.8995,6.4399 C2.4185,6.4889 2.8585,6.8319 3.2545,7.1559 C3.4935,7.3509 3.7875,7.7299 3.9645,7.9439 C4.1275,8.1399 4.1675,8.2209 4.3415,8.4529 C4.5715,8.7599 4.6435,8.9119 4.5555,8.5739 C4.4845,8.0779 4.3685,7.2309 4.2005,6.4819 C4.0725,5.9139 4.0415,5.8249 3.9195,5.3889 C3.7905,4.9249 3.7245,4.5999 3.6035,4.1079 C3.5195,3.7599 3.3685,3.0489 3.3275,2.6489 C3.2705,2.1019 3.2405,1.2099 3.5915,0.7999 C3.8665,0.4789 4.4975,0.3819 4.8885,0.5799 C5.4005,0.8389 5.6915,1.5829 5.8245,1.8799 C6.0635,2.4139 6.2115,3.0309 6.3405,3.8409 C6.5045,4.8719 6.8065,6.3029 6.8165,6.6039 C6.8405,6.2349 6.7485,5.4579 6.8125,5.1039 C6.8705,4.7829 7.1405,4.4099 7.4785,4.3089 C7.7645,4.2239 8.0995,4.1929 8.3945,4.2539 C8.7075,4.3179 9.0375,4.5419 9.1605,4.7529 C9.5225,5.3769 9.5295,6.6519 9.5445,6.5839 C9.6305,6.2079 9.6155,5.3549 9.8285,4.9999 C9.9685,4.7659 10.3255,4.5549 10.5155,4.5209 C10.8095,4.4689 11.1705,4.4529 11.4795,4.5129 C11.7285,4.5619 12.0655,4.8579 12.1565,4.9999 C12.3745,5.3439 12.4985,6.3169 12.5355,6.6579 C12.5505,6.7989 12.6095,6.2659 12.8285,5.9219 C13.2345,5.2829 14.6715,5.1589 14.7265,6.5609 C14.7515,7.2149 14.7465,7.1849 14.7465,7.6249 C14.7465,8.1419 14.7345,8.4529 14.7065,8.8269 C14.6755,9.2269 14.5895,10.1309 14.4645,10.5689 C14.3785,10.8699 14.0935,11.5469 13.8125,11.9529 C13.8125,11.9529 12.7385,13.2029 12.6215,13.7659 C12.5035,14.3279 12.5425,14.3319 12.5195,14.7309 C12.4965,15.1289 12.6405,15.6529 12.6405,15.6529 C12.6405,15.6529 11.8385,15.7569 11.4065,15.6879 C11.0155,15.6249 10.5315,14.8469 10.4065,14.6089 C10.2345,14.2809 9.8675,14.3439 9.7245,14.5859 C9.4995,14.9689 9.0155,15.6559 8.6735,15.6989 C8.0055,15.7829 6.6195,15.7299 5.5345,15.7189 C5.5345,15.7189 5.7195,14.7079 5.3075,14.3609 C5.0025,14.1019 4.4775,13.5769 4.1635,13.3009 L3.3315,12.3799 Z" fill="white" stroke="black" stroke-width="0.75"/><path d="M11.5664,12.7344 L11.5664,9.2754" stroke="black" stroke-width="0.75"/><path d="M9.5508,12.7461 L9.5348,9.2731" stroke="black" stroke-width="0.75"/><path d="M7.5547,9.3047 L7.5757,12.7307" stroke="black" stroke-width="0.75"/></svg>') 7 0, pointer !important;
+}
+
+/* Text cursor for text input elements - Higher specificity to override general cursor */
+body.db-cursor-large.dubbot-site-root input[type="text"],
+body.db-cursor-large.dubbot-site-root input[type="email"],
+body.db-cursor-large.dubbot-site-root input[type="password"],
+body.db-cursor-large.dubbot-site-root input[type="search"],
+body.db-cursor-large.dubbot-site-root input[type="url"],
+body.db-cursor-large.dubbot-site-root input[type="tel"],
+body.db-cursor-large.dubbot-site-root input[type="number"],
+body.db-cursor-large.dubbot-site-root textarea,
+body.db-cursor-large.dubbot-site-root [contenteditable="true"],
+body.db-cursor-large.dubbot-site-root [contenteditable=""],
+body.db-cursor-large input[type="text"],
+body.db-cursor-large input[type="email"],
+body.db-cursor-large input[type="password"],
+body.db-cursor-large input[type="search"],
+body.db-cursor-large input[type="url"],
+body.db-cursor-large input[type="tel"],
+body.db-cursor-large input[type="number"],
+body.db-cursor-large textarea,
+body.db-cursor-large [contenteditable="true"],
+body.db-cursor-large [contenteditable=""],
+body.db-cursor-large input[type="text"]:focus,
+body.db-cursor-large input[type="email"]:focus,
+body.db-cursor-large input[type="password"]:focus,
+body.db-cursor-large input[type="search"]:focus,
+body.db-cursor-large input[type="url"]:focus,
+body.db-cursor-large input[type="tel"]:focus,
+body.db-cursor-large input[type="number"]:focus,
+body.db-cursor-large textarea:focus,
+body.db-cursor-large [contenteditable="true"]:focus,
+body.db-cursor-large [contenteditable=""]:focus,
+body.db-cursor-large input[type="text"]:hover,
+body.db-cursor-large input[type="email"]:hover,
+body.db-cursor-large input[type="password"]:hover,
+body.db-cursor-large input[type="search"]:hover,
+body.db-cursor-large input[type="url"]:hover,
+body.db-cursor-large input[type="tel"]:hover,
+body.db-cursor-large input[type="number"]:hover,
+body.db-cursor-large textarea:hover,
+body.db-cursor-large [contenteditable="true"]:hover,
+body.db-cursor-large [contenteditable=""]:hover {
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" viewBox="0 0 24 24"><path d="M12,13 L10.5,13 C10.2238576,13 10,12.7761424 10,12.5 C10,12.2238576 10.2238576,12 10.5,12 L12,12 L12,5.5 C12,4.67157288 11.3284271,4 10.5,4 L9.5,4 C9.22385763,4 9,3.77614237 9,3.5 C9,3.22385763 9.22385763,3 9.5,3 L10.5,3 C11.3177995,3 12.0438856,3.39267155 12.5,3.99975627 C12.9561144,3.39267155 13.6822005,3 14.5,3 L15.5,3 C15.7761424,3 16,3.22385763 16,3.5 C16,3.77614237 15.7761424,4 15.5,4 L14.5,4 C13.6715729,4 13,4.67157288 13,5.5 L13,12 L14.5,12 C14.7761424,12 15,12.2238576 15,12.5 C15,12.7761424 14.7761424,13 14.5,13 L13,13 L13,19.5 C13,20.3284271 13.6715729,21 14.5,21 L15.5,21 C15.7761424,21 16,21.2238576 16,21.5 C16,21.7761424 15.7761424,22 15.5,22 L14.5,22 C13.6822005,22 12.9561144,21.6073285 12.5,21.0002437 C12.0438856,21.6073285 11.3177995,22 10.5,22 L9.5,22 C9.22385763,22 9,21.7761424 9,21.5 C9,21.2238576 9.22385763,21 9.5,21 L10.5,21 C11.3284271,21 12,20.3284271 12,19.5 L12,13 Z" fill="black"/></svg>') 21 21, text !important;
+}
+
+/* Extra-large text cursor for text input elements - Higher specificity to override general cursor */
+body.db-cursor-extra-large.dubbot-site-root input[type="text"],
+body.db-cursor-extra-large.dubbot-site-root input[type="email"],
+body.db-cursor-extra-large.dubbot-site-root input[type="password"],
+body.db-cursor-extra-large.dubbot-site-root input[type="search"],
+body.db-cursor-extra-large.dubbot-site-root input[type="url"],
+body.db-cursor-extra-large.dubbot-site-root input[type="tel"],
+body.db-cursor-extra-large.dubbot-site-root input[type="number"],
+body.db-cursor-extra-large.dubbot-site-root textarea,
+body.db-cursor-extra-large.dubbot-site-root [contenteditable="true"],
+body.db-cursor-extra-large.dubbot-site-root [contenteditable=""],
+body.db-cursor-extra-large input[type="text"],
+body.db-cursor-extra-large input[type="email"],
+body.db-cursor-extra-large input[type="password"],
+body.db-cursor-extra-large input[type="search"],
+body.db-cursor-extra-large input[type="url"],
+body.db-cursor-extra-large input[type="tel"],
+body.db-cursor-extra-large input[type="number"],
+body.db-cursor-extra-large textarea,
+body.db-cursor-extra-large [contenteditable="true"],
+body.db-cursor-extra-large [contenteditable=""],
+body.db-cursor-extra-large input[type="text"]:focus,
+body.db-cursor-extra-large input[type="email"]:focus,
+body.db-cursor-extra-large input[type="password"]:focus,
+body.db-cursor-extra-large input[type="search"]:focus,
+body.db-cursor-extra-large input[type="url"]:focus,
+body.db-cursor-extra-large input[type="tel"]:focus,
+body.db-cursor-extra-large input[type="number"]:focus,
+body.db-cursor-extra-large textarea:focus,
+body.db-cursor-extra-large [contenteditable="true"]:focus,
+body.db-cursor-extra-large [contenteditable=""]:focus,
+body.db-cursor-extra-large input[type="text"]:hover,
+body.db-cursor-extra-large input[type="email"]:hover,
+body.db-cursor-extra-large input[type="password"]:hover,
+body.db-cursor-extra-large input[type="search"]:hover,
+body.db-cursor-extra-large input[type="url"]:hover,
+body.db-cursor-extra-large input[type="tel"]:hover,
+body.db-cursor-extra-large input[type="number"]:hover,
+body.db-cursor-extra-large textarea:hover,
+body.db-cursor-extra-large [contenteditable="true"]:hover,
+body.db-cursor-extra-large [contenteditable=""]:hover {
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 24 24"><path d="M12,13 L10.5,13 C10.2238576,13 10,12.7761424 10,12.5 C10,12.2238576 10.2238576,12 10.5,12 L12,12 L12,5.5 C12,4.67157288 11.3284271,4 10.5,4 L9.5,4 C9.22385763,4 9,3.77614237 9,3.5 C9,3.22385763 9.22385763,3 9.5,3 L10.5,3 C11.3177995,3 12.0438856,3.39267155 12.5,3.99975627 C12.9561144,3.39267155 13.6822005,3 14.5,3 L15.5,3 C15.7761424,3 16,3.22385763 16,3.5 C16,3.77614237 15.7761424,4 15.5,4 L14.5,4 C13.6715729,4 13,4.67157288 13,5.5 L13,12 L14.5,12 C14.7761424,12 15,12.2238576 15,12.5 C15,12.7761424 14.7761424,13 14.5,13 L13,13 L13,19.5 C13,20.3284271 13.6715729,21 14.5,21 L15.5,21 C15.7761424,21 16,21.2238576 16,21.5 C16,21.7761424 15.7761424,22 15.5,22 L14.5,22 C13.6822005,22 12.9561144,21.6073285 12.5,21.0002437 C12.0438856,21.6073285 11.3177995,22 10.5,22 L9.5,22 C9.22385763,22 9,21.7761424 9,21.5 C9,21.2238576 9.22385763,21 9.5,21 L10.5,21 C11.3284271,21 12,20.3284271 12,19.5 L12,13 Z" fill="black"/></svg>') 28 28, text !important;
+}
+
+
+
 

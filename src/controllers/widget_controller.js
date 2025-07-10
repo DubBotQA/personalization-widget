@@ -92,8 +92,18 @@ export default class extends Controller {
       root.classList.remove(cls);
     });
 
+    // remove all cursor classes
+    const cursorClasses = [
+      'db-cursor-large',
+      'db-cursor-extra-large'
+    ];
+    cursorClasses.forEach(cls => {
+      root.classList.remove(cls);
+    });
+
     // clear inline styles that might have been applied
     root.style.filter = '';
+    root.style.cursor = '';
 
     // clear all preferences
     Preferences.reset();

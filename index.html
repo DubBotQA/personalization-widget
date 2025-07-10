@@ -47,6 +47,56 @@
 
       <a href="#" style="color: blue;">This is a test link</a>
 
+      <h2>Test Form Elements</h2>
+      <form style="margin: 20px 0;">
+        <div style="margin-bottom: 15px;">
+          <label for="name">Name:</label><br>
+          <input type="text" id="name" name="name" placeholder="Enter your name" style="width: 300px; padding: 8px; font-size: 14px;">
+        </div>
+
+        <div style="margin-bottom: 15px;">
+          <label for="email">Email:</label><br>
+          <input type="email" id="email" name="email" placeholder="Enter your email" style="width: 300px; padding: 8px; font-size: 14px;">
+        </div>
+
+        <div style="margin-bottom: 15px;">
+          <label for="password">Password:</label><br>
+          <input type="password" id="password" name="password" placeholder="Enter password" style="width: 300px; padding: 8px; font-size: 14px;">
+        </div>
+
+        <div style="margin-bottom: 15px;">
+          <label for="search">Search:</label><br>
+          <input type="search" id="search" name="search" placeholder="Search..." style="width: 300px; padding: 8px; font-size: 14px;">
+        </div>
+
+        <div style="margin-bottom: 15px;">
+          <label for="message">Message:</label><br>
+          <textarea id="message" name="message" rows="4" placeholder="Enter your message" style="width: 300px; padding: 8px; font-size: 14px; resize: vertical;"></textarea>
+        </div>
+
+        <div style="margin-bottom: 15px;">
+          <label for="country">Country:</label><br>
+          <select id="country" name="country" style="width: 320px; padding: 8px; font-size: 14px;">
+            <option value="">Select a country</option>
+            <option value="us">United States</option>
+            <option value="ca">Canada</option>
+            <option value="uk">United Kingdom</option>
+          </select>
+        </div>
+
+        <div style="margin-bottom: 15px;">
+          <label for="range">Volume:</label><br>
+          <input type="range" id="range" name="range" min="0" max="100" value="50" style="width: 300px;">
+        </div>
+
+        <button type="submit" style="background-color: #007cba; color: white; padding: 10px 20px; border: none; cursor: pointer; font-size: 16px;">Submit Form</button>
+      </form>
+
+      <h2>Editable Content</h2>
+      <div contenteditable="true" style="border: 1px solid #ccc; padding: 10px; min-height: 100px; width: 300px; background-color: #fafafa;">
+        This is an editable content area. Click here to start typing and test the text cursor.
+      </div>
+
       <p><strong>Bold text</strong> and <em>italic text</em> for testing.</p>
     </div>
   </body>
