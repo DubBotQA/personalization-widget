@@ -27,7 +27,7 @@
 .btn-primary:hover,
 .btn-primary:focus {
   background-color: hsl(from var(--db-colors-primary) h calc(s + 30) calc(l - 30));
-  color: var(--db-colors-primaryFont)
+  color: var(--db-colors-primaryFont);
   border: none;
 }
 
@@ -40,7 +40,7 @@
 .btn-secondary:hover,
 .btn-secondary:focus {
   background-color: hsl(from var(--db-colors-secondary) h calc(s + 30) calc(l - 30));
-  color: var(--db-colors-secondaryFont)
+  color: var(--db-colors-secondaryFont);
   border: none;
 }
 
@@ -74,7 +74,7 @@
 .close-button:hover,
 .close-button:focus {
   background-color: hsl(from var(--db-colors-secondary) h calc(s + 30) calc(l - 30));
-  color: var(--db-colors-secondaryFont)
+  color: var(--db-colors-secondaryFont);
 }
 
 .personalization-widget {
@@ -96,8 +96,17 @@
 .options-panel {
   display: none;
   margin-bottom: 0.5rem;
+  max-height: calc(100vh - 8rem); /* Reserve space for toggle button and margins */
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 .options-panel.show {
-  display: block;
+  display: flex;
+}
+
+.options-panel .card-body {
+  overflow-y: auto;
+  max-height: calc(100vh - 12rem); /* Reserve space for header, footer, button, and margins */
 }
