@@ -1,12 +1,11 @@
 import html from './widget.html?raw';
-import widgetCSS from './widget.css?raw';
+import widgetCSS from './widget-postcss.css?raw';
 import pageOverridesCSS from './page-overrides.css?raw';
 import bootstrapCSS from 'bootstrap/dist/css/bootstrap.min.css?raw';
 import { Application } from '@hotwired/stimulus';
 
 function injectWidget() {
-
-  // Inject the page overrides CSS to main doc
+  // Inject page overrides for personalization features
   const pageStyle = document.createElement('style');
   pageStyle.id = 'dubbot-page-overrides';
   pageStyle.textContent = pageOverridesCSS;

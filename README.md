@@ -25,27 +25,27 @@ The configuration JSON is based on the `defaultConfig` object in `src/config.js`
 Example JSON config:
 ```json
 {
-    "fontFamily": {
-        "options": {
-            "comicsans": { "label": "Comic Sans", "css": "'Comic Sans MS', cursive" }
-        }
-    },
-    "ui": {
-        "title": "Personalize Website",
-        "description": "Don't like how our page looks? Use these knobs.",
-        "theme": {
-            "colors": {
-                "primary": "#000000",
-                "bodyFont": "#FFFFFF",
-                "primaryFont": "#FFFFFF",
-            }
-        }
-    },
-    "show": [
-        "change_font_family",
-        "change_font_size",
-        "change_color_contrast"
-    ]
+  "fontFamily": {
+    "options": {
+      "comicsans": { "label": "Comic Sans", "css": "'Comic Sans MS', cursive" }
+    }
+  },
+  "ui": {
+    "title": "Personalize Website",
+    "description": "Don't like how our page looks? Use these knobs.",
+    "theme": {
+      "colors": {
+        "primary": "#000000",
+        "bodyFont": "#FFFFFF",
+        "primaryFont": "#FFFFFF"
+      }
+    }
+  },
+  "show": [
+    "change_font_family",
+    "change_font_size", 
+    "change_color_contrast"
+  ]
 }
 ```
 This example:
@@ -82,9 +82,21 @@ The Personalization Widget currently provides the following accessibility option
 
 - `src/` – main JavaScript source files (Stimulus controllers, helpers, config loader)
 - `src/controllers/` – Stimulus controllers for each control module
-- `src/helpers/` – Helper functions
+- `src/helpers/` – Helper functions  
 - `src/ui/` – HTML fragments for each control module
+- `src/widget-postcss.css` – PostCSS-enhanced widget styles
+- `src/page-overrides.css` – CSS overrides applied to the host page
+- `postcss.config.js` – PostCSS configuration for modern CSS features
 - `dist/` – built assets (via Vite)
+
+### CSS Architecture
+
+This project uses **PostCSS** for modern CSS features:
+- CSS nesting and custom properties
+- Automatic vendor prefixes
+- Style scoping to prevent conflicts
+- Production minification
+- Shadow DOM isolation for widget styles
 
 ### Local Development
 
@@ -101,7 +113,7 @@ The Personalization Widget currently provides the following accessibility option
   ```sh
     npm run dev
   ```
-4. Open http://localhost:5173/ in the browser to test locally.
+4. Open the URL shown in your terminal (typically http://localhost:5173/) in the browser to test locally.
 
 ### Building
 
@@ -109,7 +121,13 @@ Generate a deployable db-personalization-widget.bundle.js:
 ```sh
 npm run build
 ```
-This outputs a single, bundled file to `dist/db-personalization-widget.bundle.js`
+This outputs a single, self-contained bundled file to `dist/db-personalization-widget.bundle.js` that includes:
+- All JavaScript functionality
+- PostCSS-processed widget styles 
+- Bootstrap CSS
+- Page override styles
+
+The widget requires no separate CSS files - everything is embedded in the JavaScript bundle for easy deployment.
 
 ## Contributing
 - Open a [GitHub issue](https://github.com/DubBotQA/personalization-widget/issues) for feature requests or bug reports

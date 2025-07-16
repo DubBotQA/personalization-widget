@@ -1,10 +1,15 @@
-<!-- font family -->
+<!-- Font Family Control -->
 <div class="mb-3" data-controller="change-font-family">
-  <label for="font-select" class="form-label">Font</label>
+  <label for="font-select" class="form-label">Font Family</label>
   <select
     id="font-select"
     class="form-select"
     data-change-font-family-target="select"
-    data-action="change->change-font-family#change">
+    data-action="change->change-font-family#change"
+    aria-label="Select font family"
+    aria-describedby="font-family-help">
   </select>
+  <div id="font-family-help" class="form-text text-muted small">
+    Choose a font that's easier for you to read
+  </div>
 </div>

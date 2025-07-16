@@ -33,7 +33,7 @@ const defaultConfig = {
   ui: {
     title: "Personalization Options",
     description: "Personalize your web experience with these tools.",
-    buttonIcon: '⚙️ ',
+    buttonIcon: '&#9881;&#65039;', // HTML entity for gear emoji ⚙️
     width: "400px",
     theme: {
       font: {

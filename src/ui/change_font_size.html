@@ -1,8 +1,21 @@
-<!-- font size -->
+<!-- Font Size Control -->
 <div class="mb-3" data-controller="change-font-size">
-  <label class="form-label">Font Size: <span data-change-font-size-target="label">100%</span></label>
+  <label class="form-label" for="font-size-range">
+    Font Size: <span data-change-font-size-target="label" aria-live="polite">100%</span>
+  </label>
   <input type="range"
+         id="font-size-range"
          class="form-range"
          data-change-font-size-target="range"
-         data-action="input->change-font-size#change" />
+         data-action="input->change-font-size#change"
+         aria-label="Adjust font size"
+         aria-valuemin="50"
+         aria-valuemax="200"
+         aria-valuenow="100"
+         aria-valuetext="100%"
+         role="slider" />
+  <div class="d-flex justify-content-between text-muted small mt-1">
+    <span>Small</span>
+    <span>Large</span>
+  </div>
 </div>

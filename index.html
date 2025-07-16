@@ -9,95 +9,75 @@
         font-family: Arial, sans-serif;
         line-height: 1.6;
         margin: 0;
-        padding: 0;
-      }
-      .container {
-        max-width: 800px;
-        margin: 0 auto;
         padding: 20px;
-      }
-      .mt-5 {
-        margin-top: 3rem;
+        background-color: #f0f0f0;
       }
     </style>
   </head>
   <body>
-    <div class="container mt-5">
-      <h1>Personalization Widget Demo</h1>
-      <p>This is a demonstration of the accessibility personalization widget. The widget should appear in the bottom corner.</p>
-
-      <h2>Test Different Content Types</h2>
-      <p>This paragraph contains regular text to test font family, size, and spacing adjustments.</p>
-
-      <div style="background-color: #f0f0f0; padding: 15px; margin: 20px 0;">
-        <h3>Different Background</h3>
-        <p>This section has a different background color to test contrast adjustments.</p>
+    <div style="max-width: 800px; margin: 0 auto; padding: 30px; background-color: white; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); margin-bottom: 100px;">
+      <h1 style="color: #2563eb; border-bottom: 2px solid #2563eb; padding-bottom: 10px; margin-top: 0;">Personalization Widget Demo</h1>
+      <p style="color: #555; margin-bottom: 15px;">This should be in a white container with shadow.</p>
+      
+      <div style="background-color: #e9ecef; padding: 20px; margin: 20px 0; border-radius: 8px; border-left: 4px solid #2563eb;">
+        <h3 style="color: #333; margin-top: 0;">Different Background</h3>
+        <p style="color: #555;">This should have a gray background with a blue left border.</p>
       </div>
 
-      <div style="background-color: #003366; color: white; padding: 15px; margin: 20px 0;">
+      <div style="background-color: #003366; color: white; padding: 20px; margin: 20px 0; border-radius: 8px;">
         <h3>Dark Section</h3>
         <p>This section has a dark background with white text to test various contrast modes.</p>
       </div>
 
-      <ul>
-        <li>List item one</li>
-        <li>List item two</li>
-        <li>List item three</li>
-      </ul>
-
-      <a href="#" style="color: blue;">This is a test link</a>
-
-      <h2>Test Form Elements</h2>
-      <form style="margin: 20px 0;">
+      <h2 style="color: #333;">Test Form Elements</h2>
+      <form style="background: #f8f9fa; padding: 25px; margin: 20px 0; border-radius: 8px; border: 1px solid #ddd;">
         <div style="margin-bottom: 15px;">
-          <label for="name">Name:</label><br>
-          <input type="text" id="name" name="name" placeholder="Enter your name" style="width: 300px; padding: 8px; font-size: 14px;">
+          <label for="name" style="display: block; font-weight: bold; margin-bottom: 5px;">Name:</label>
+          <input type="text" id="name" name="name" placeholder="Enter your name" style="width: 100%; max-width: 400px; padding: 8px; border: 1px solid #ccc; border-radius: 4px;">
         </div>
-
         <div style="margin-bottom: 15px;">
-          <label for="email">Email:</label><br>
-          <input type="email" id="email" name="email" placeholder="Enter your email" style="width: 300px; padding: 8px; font-size: 14px;">
+          <label for="email" style="display: block; font-weight: bold; margin-bottom: 5px;">Email:</label>
+          <input type="email" id="email" name="email" placeholder="Enter your email" style="width: 100%; max-width: 400px; padding: 8px; border: 1px solid #ccc; border-radius: 4px;">
         </div>
-
         <div style="margin-bottom: 15px;">
-          <label for="password">Password:</label><br>
-          <input type="password" id="password" name="password" placeholder="Enter password" style="width: 300px; padding: 8px; font-size: 14px;">
+          <label for="message" style="display: block; font-weight: bold; margin-bottom: 5px;">Message:</label>
+          <textarea id="message" name="message" placeholder="Enter your message" style="width: 100%; max-width: 400px; padding: 8px; border: 1px solid #ccc; border-radius: 4px; height: 100px; resize: vertical;"></textarea>
         </div>
-
-        <div style="margin-bottom: 15px;">
-          <label for="search">Search:</label><br>
-          <input type="search" id="search" name="search" placeholder="Search..." style="width: 300px; padding: 8px; font-size: 14px;">
-        </div>
-
-        <div style="margin-bottom: 15px;">
-          <label for="message">Message:</label><br>
-          <textarea id="message" name="message" rows="4" placeholder="Enter your message" style="width: 300px; padding: 8px; font-size: 14px; resize: vertical;"></textarea>
-        </div>
-
-        <div style="margin-bottom: 15px;">
-          <label for="country">Country:</label><br>
-          <select id="country" name="country" style="width: 320px; padding: 8px; font-size: 14px;">
-            <option value="">Select a country</option>
-            <option value="us">United States</option>
-            <option value="ca">Canada</option>
-            <option value="uk">United Kingdom</option>
-          </select>
-        </div>
-
-        <div style="margin-bottom: 15px;">
-          <label for="range">Volume:</label><br>
-          <input type="range" id="range" name="range" min="0" max="100" value="50" style="width: 300px;">
-        </div>
-
-        <button type="submit" style="background-color: #007cba; color: white; padding: 10px 20px; border: none; cursor: pointer; font-size: 16px;">Submit Form</button>
+        <button type="submit" style="background: #2563eb; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">Submit Form</button>
       </form>
 
-      <h2>Editable Content</h2>
-      <div contenteditable="true" style="border: 1px solid #ccc; padding: 10px; min-height: 100px; width: 300px; background-color: #fafafa;">
-        This is an editable content area. Click here to start typing and test the text cursor.
+      <h2 style="color: #333;">Sample Content</h2>
+      
+      <div style="background-color: #fff3cd; padding: 20px; margin: 20px 0; border-radius: 8px; border-left: 4px solid #ffc107;">
+        <h3 style="color: #856404; margin-top: 0;">Important Notice</h3>
+        <p style="color: #856404;">This is an example of highlighted content that users might want to customize. The widget allows users to adjust font size, font family, letter spacing, and color contrast to improve readability.</p>
       </div>
 
-      <p><strong>Bold text</strong> and <em>italic text</em> for testing.</p>
+      <h3 style="color: #333;">Navigation Example</h3>
+      <ul style="list-style-type: none; padding: 0; background: #f8f9fa; border-radius: 8px; padding: 20px;">
+        <li style="margin-bottom: 10px;"><a href="#" style="color: #2563eb; text-decoration: none; padding: 5px 0; display: block;">Home</a></li>
+        <li style="margin-bottom: 10px;"><a href="#" style="color: #2563eb; text-decoration: none; padding: 5px 0; display: block;">About Us</a></li>
+        <li style="margin-bottom: 10px;"><a href="#" style="color: #2563eb; text-decoration: none; padding: 5px 0; display: block;">Services</a></li>
+        <li style="margin-bottom: 10px;"><a href="#" style="color: #2563eb; text-decoration: none; padding: 5px 0; display: block;">Contact</a></li>
+      </ul>
+
+      <h3 style="color: #333;">Text Content Example</h3>
+      <p style="color: #555; margin-bottom: 15px;">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+      </p>
+      <p style="color: #555; margin-bottom: 15px;">
+        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </p>
+
+      <h3 style="color: #333;">Button Examples</h3>
+      <div style="display: flex; gap: 10px; flex-wrap: wrap; margin: 20px 0;">
+        <button style="background: #28a745; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">Success</button>
+        <button style="background: #dc3545; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">Danger</button>
+        <button style="background: #ffc107; color: #212529; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">Warning</button>
+        <button style="background: #17a2b8; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">Info</button>
+      </div>
     </div>
   </body>
 </html>

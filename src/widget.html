@@ -1,19 +1,40 @@
-<div data-controller="widget" class="personalization-widget">
-  <div class="card options-panel" data-widget-target="card">
+<div data-controller="widget" class="personalization-widget dubbot-personalization-widget" role="region" aria-label="Accessibility personalization options">
+  <div class="card options-panel" data-widget-target="card" role="dialog" aria-labelledby="widget-title" aria-hidden="true">
     <div class="card-header d-flex justify-content-between align-items-center">
-      <strong data-widget-target="title">Personalization Options</strong>
-      <button class="btn close-button" data-action="click->widget#toggle">X</button>
+      <strong id="widget-title" data-widget-target="title">Personalization Options</strong>
+      <button
+        class="btn close-button"
+        data-action="click->widget#toggle"
+        aria-label="Close personalization panel"
+        aria-describedby="widget-title"
+        type="button">
+        &times;
+      </button>
     </div>
-    <div class="card-body" data-widget-target="body">
-      <p class="card-text" data-widget-target="description"></p>
-      <div class="container" data-widget-target="controllers">
+    <div class="card-body" data-widget-target="body" role="main">
+      <p class="card-text" data-widget-target="description" aria-live="polite"></p>
+      <div class="container" data-widget-target="controllers" role="group" aria-label="Personalization controls">
       </div>
     </div>
     <div class="card-footer">
-      <!-- reset -->
-      <button class="btn btn-secondary" data-action="widget#reset">Reset</button>
+      <button
+        class="btn btn-secondary w-100"
+        data-action="widget#reset"
+        type="button"
+        aria-describedby="reset-description">
+        Reset All Settings
+      </button>
+      <div id="reset-description" class="visually-hidden">Reset all personalization settings to default values</div>
     </div>
   </div>
-  <button class="btn btn-primary rounded-circle toggle-btn float-end" data-widget-target="button" data-action="click->widget#toggle"></button>
+  <button
+    class="btn btn-primary rounded-circle toggle-btn float-end"
+    data-widget-target="button"
+    data-action="click->widget#toggle"
+    aria-label="Open personalization options"
+    aria-expanded="false"
+    aria-controls="options-panel"
+    type="button">
+  </button>
 </div>
 

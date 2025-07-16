@@ -2,11 +2,11 @@
 body.dubbot-site-root,
 body.dubbot-site-root *::before,
 body.dubbot-site-root *::after {
-  font-size:      var(--db-font-size,      inherit);
-  font-family:    var(--db-font-family,    inherit);
-  letter-spacing: var(--db-letter-spacing, normal);
-  word-spacing:   var(--db-word-spacing,   normal);
-  line-height:    var(--db-line-height,    normal);
+  font-size:      var(--db-font-size,      inherit) !important;
+  font-family:    var(--db-font-family,    inherit) !important;
+  letter-spacing: var(--db-letter-spacing, normal) !important;
+  word-spacing:   var(--db-word-spacing,   normal) !important;
+  line-height:    var(--db-line-height,    normal) !important;
 }
 
 /* Dark Mode Styles */
@@ -15,8 +15,11 @@ body.db-dark-mode {
   color: #e0e0e0 !important;
 }
 
-/* Apply dark mode to all elements except the widget itself */
-body.db-dark-mode *:not(#dubbot-personalization-widget *):not(#dubbot-personalization-widget) {
+/* Apply dark mode to content elements, but preserve demo page styling */
+body.db-dark-mode p,
+body.db-dark-mode div:not(.container):not(.demo-section):not(.dark-section),
+body.db-dark-mode span,
+body.db-dark-mode li {
   background-color: transparent !important;
   color: inherit !important;
 }

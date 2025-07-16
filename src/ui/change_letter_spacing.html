@@ -1,8 +1,21 @@
-<!-- letter spacing size -->
+<!-- Letter Spacing Control -->
 <div class="mb-3" data-controller="change-letter-spacing">
-  <label class="form-label">Letter Spacing: <span data-change-letter-spacing-target="label">Default</span></label>
+  <label class="form-label" for="letter-spacing-range">
+    Letter Spacing: <span data-change-letter-spacing-target="label" aria-live="polite">Normal</span>
+  </label>
   <input type="range"
+         id="letter-spacing-range"
          class="form-range"
          data-change-letter-spacing-target="range"
-         data-action="input->change-letter-spacing#change" />
+         data-action="input->change-letter-spacing#change"
+         aria-label="Adjust letter spacing"
+         aria-valuemin="0"
+         aria-valuemax="10"
+         aria-valuenow="0"
+         aria-valuetext="Normal"
+         role="slider" />
+  <div class="d-flex justify-content-between text-muted small mt-1">
+    <span>Tight</span>
+    <span>Wide</span>
+  </div>
 </div>
