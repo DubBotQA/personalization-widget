@@ -10,13 +10,6 @@
   right: 1.5rem;
   z-index: 9999;
   
-  /* Legacy CSS custom properties for backwards compatibility */
-  --bs-body-bg: var(--db-colors-background);
-  --bs-body-color: var(--db-colors-bodyFont);
-  --bs-body-color-rgb: var(--db-colors-bodyFont-rgb);
-  --bs-button-color: var(--db-colors-primary-rgb);
-  --bs-border-radius: 16px;
-  
   /* Theme Colors */
   --widget-primary: #2563eb;
   --widget-primary-dark: #1d4ed8;
@@ -56,17 +49,13 @@
   --widget-shadow-focus: 0 0 0 3px rgba(37, 99, 235, 0.4);
   
   /* Transitions */
-  --widget-transition-fast: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
-  --widget-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  --widget-transition-slow: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  --widget-transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+                       box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+                       opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   
   /* Effects */
   --widget-backdrop-blur: blur(20px);
 }
-
-/* ===========================
-   CSS Custom Properties (Variables) - Scoped Version
-   ========================== */
 
 /* ===========================
    Widget Foundation
@@ -176,9 +165,6 @@
    Card Components
    ========================== */
 .card {
-  --bs-card-cap-color: var(--widget-bg-light);
-  --bs-card-cap-bg: transparent;
-  --bs-card-cap-bg-rgb: var(--widget-primary-rgb);
   background: var(--widget-bg-card-light);
   backdrop-filter: var(--widget-backdrop-blur);
   border: 1px solid rgba(0, 0, 0, 0.08);
@@ -428,7 +414,7 @@
   border-radius: var(--widget-border-radius-sm);
   font-size: 1.2rem;
   line-height: 1;
-  color: var(--db-colors-primaryFont);
+  color: var(--widget-bg-light);
   cursor: pointer;
   padding: var(--widget-spacing-xs) var(--widget-spacing-sm);
   font-family: system-ui, -apple-system, sans-serif;
@@ -458,7 +444,7 @@
 .close-button:hover {
   background: rgba(255, 255, 255, 0.2);
   border-color: rgba(255, 255, 255, 0.3);
-  color: var(--db-colors-primaryFont);
+  color: var(--widget-bg-light);
 }
 
 .close-button:hover::before {
@@ -708,33 +694,5 @@ body.db-dark-mode .personalization-widget {
 @media (max-width: 768px) and (min-width: 481px) {
   .options-panel {
     max-width: 350px;
-  }
-}
-
-/* ===========================
-   Modern CSS Features
-   ========================== */
-
-/* Container Queries (when supported) */
-@container (max-width: 400px) {
-  .card-body {
-    padding: var(--widget-spacing-sm);
-  }
-}
-
-/* CSS Logical Properties */
-.card {
-  border-inline: 1px solid rgba(0, 0, 0, 0.08);
-  border-block: 1px solid rgba(0, 0, 0, 0.08);
-  margin-inline-start: auto;
-  margin-inline-end: auto;
-}
-
-/* Future-proof color functions */
-.btn-primary {
-  background: color-mix(in srgb, var(--widget-primary) 80%, var(--widget-primary-dark) 20%);
-  
-  &:hover {
-    background: color-mix(in srgb, var(--widget-primary-dark) 80%, var(--widget-primary-darker) 20%);
   }
 }
