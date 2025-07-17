@@ -5,20 +5,23 @@
   "main": "index.js",
   "scripts": {
     "dev": "vite",
-    "build": "vite build"
+    "build": "vite build",
+    "test-dist": "npm run build && echo 'Starting server and opening browser...' && cd dist && (pkill -f 'serve.*8082' 2>/dev/null || true) && npx serve . -p 8082 & sleep 3 && npx open-cli http://localhost:8082/dist-test.html"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "vite": "^6.3.5",
+    "autoprefixer": "^10.4.16",
+    "cssnano": "^6.0.3",
+    "open-cli": "^8.0.0",
     "postcss": "^8.4.35",
-    "postcss-preset-env": "^9.3.0",
+    "postcss-custom-properties": "^13.3.4",
     "postcss-nested": "^6.0.1",
     "postcss-prefixwrap": "^1.0.77",
-    "postcss-custom-properties": "^13.3.4",
-    "cssnano": "^6.0.3",
-    "autoprefixer": "^10.4.16"
+    "postcss-preset-env": "^9.3.0",
+    "serve": "^14.2.4",
+    "vite": "^6.3.5"
   },
   "dependencies": {
     "@hotwired/stimulus": "^3.2.2",

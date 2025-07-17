@@ -43,7 +43,7 @@ Example JSON config:
   },
   "show": [
     "change_font_family",
-    "change_font_size", 
+    "change_font_size",
     "change_color_contrast"
   ]
 }
@@ -82,7 +82,7 @@ The Personalization Widget currently provides the following accessibility option
 
 - `src/` – main JavaScript source files (Stimulus controllers, helpers, config loader)
 - `src/controllers/` – Stimulus controllers for each control module
-- `src/helpers/` – Helper functions  
+- `src/helpers/` – Helper functions
 - `src/ui/` – HTML fragments for each control module
 - `src/widget-postcss.css` – PostCSS-enhanced widget styles
 - `src/page-overrides.css` – CSS overrides applied to the host page
@@ -123,11 +123,36 @@ npm run build
 ```
 This outputs a single, self-contained bundled file to `dist/db-personalization-widget.bundle.js` that includes:
 - All JavaScript functionality
-- PostCSS-processed widget styles 
+- PostCSS-processed widget styles
 - Bootstrap CSS
 - Page override styles
 
 The widget requires no separate CSS files - everything is embedded in the JavaScript bundle for easy deployment.
+
+### Testing Production Build
+
+To test the production build locally:
+```sh
+npm run test-dist
+```
+
+This command will:
+1. **Build the latest code** automatically with `npm run build`
+2. **Start a local server** on `http://localhost:8082`
+3. **Automatically open your browser** to a test page using the production build
+4. **Serve the bundled widget** exactly as it would appear when deployed
+
+The test page (`dist/dist-test.html`) is automatically generated during the build process and mirrors the development demo page but uses the production bundle instead of the development source files.
+
+**Note**: The server will continue running until you stop it manually (Ctrl+C). The script automatically handles port conflicts by stopping any existing servers on port 8082.
+
+### Available Scripts
+
+| Command | Description |
+|---------|-------------|
+| `npm run dev` | Start the development server with hot reload |
+| `npm run build` | Build the production bundle and generate test files |
+| `npm run test-dist` | Start a local server and open the production build for testing |
 
 ## Contributing
 - Open a [GitHub issue](https://github.com/DubBotQA/personalization-widget/issues) for feature requests or bug reports

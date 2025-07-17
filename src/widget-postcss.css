@@ -9,13 +9,13 @@
   bottom: 1.5rem;
   right: 1.5rem;
   z-index: 9999;
-  
+
   /* Theme Colors */
   --widget-primary: #2563eb;
   --widget-primary-dark: #1d4ed8;
   --widget-primary-darker: #1e40af;
   --widget-primary-rgb: 37, 99, 235;
-  
+
   /* Backgrounds */
   --widget-bg-light: #ffffff;
   --widget-bg-dark: rgba(17, 24, 39, 0.98);
@@ -23,7 +23,7 @@
   --widget-bg-card-dark: rgba(17, 24, 39, 0.95);
   --widget-bg-footer-light: #f8fafc;
   --widget-bg-footer-dark: rgba(31, 41, 55, 0.95);
-  
+
   /* Text Colors */
   --widget-text-primary-light: #1a1a1a;
   --widget-text-primary-dark: #f9fafb;
@@ -31,7 +31,7 @@
   --widget-text-secondary-dark: #d1d5db;
   --widget-text-muted-light: #6b7280;
   --widget-text-muted-dark: #9ca3af;
-  
+
   /* Design System */
   --widget-border-radius: 16px;
   --widget-border-radius-sm: 8px;
@@ -41,18 +41,18 @@
   --widget-spacing-md: 1rem;
   --widget-spacing-lg: 1.5rem;
   --widget-spacing-xl: 1.75rem;
-  
+
   /* Shadows */
   --widget-shadow-sm: 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   --widget-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
   --widget-shadow-lg: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
   --widget-shadow-focus: 0 0 0 3px rgba(37, 99, 235, 0.4);
-  
+
   /* Transitions */
-  --widget-transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
-                       box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+  --widget-transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                       box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1),
                        opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  
+
   /* Effects */
   --widget-backdrop-blur: blur(20px);
 }
@@ -63,11 +63,10 @@
 .personalization-widget {
   font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
   font-feature-settings: 'liga' 1, 'kern' 1;
-  -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
   color-scheme: light;
-  
+
   /* Nested form elements inherit font */
   & button,
   & select,
@@ -87,7 +86,7 @@
   border: none;
   border-radius: 50%;
   box-shadow: var(--widget-shadow);
-  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
               box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   display: flex;
   align-items: center;
@@ -342,7 +341,7 @@
   font-weight: 600;
   letter-spacing: 0.025em;
   transition: var(--widget-transition);
-  box-shadow: 0 4px 6px -1px rgba(var(--widget-primary-rgb), 0.25), 
+  box-shadow: 0 4px 6px -1px rgba(var(--widget-primary-rgb), 0.25),
               0 2px 4px -1px rgba(var(--widget-primary-rgb), 0.15);
   position: relative;
   overflow: hidden;
@@ -365,7 +364,7 @@
     color: var(--widget-bg-light);
     border: none;
     transform: translateY(-2px);
-    box-shadow: 0 10px 15px -3px rgba(var(--widget-primary-rgb), 0.25), 
+    box-shadow: 0 10px 15px -3px rgba(var(--widget-primary-rgb), 0.25),
                 0 4px 6px -2px rgba(var(--widget-primary-rgb), 0.15);
 
     &::before {
@@ -375,7 +374,7 @@
 
   &:focus {
     outline: none;
-    box-shadow: var(--widget-shadow-focus), 
+    box-shadow: var(--widget-shadow-focus),
                 0 10px 15px -3px rgba(var(--widget-primary-rgb), 0.25);
   }
 
@@ -528,13 +527,13 @@
 }
 
 @keyframes fadeInOut {
-  0%, 100% { 
-    opacity: 0; 
-    transform: translate(-50%, -50%) scale(0.8); 
+  0%, 100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.8);
   }
-  50% { 
-    opacity: 1; 
-    transform: translate(-50%, -50%) scale(1); 
+  50% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
   }
 }
 
@@ -543,7 +542,7 @@
    ========================== */
 .personalization-widget.dark-mode,
 body.db-dark-mode .personalization-widget {
-  
+
   & .card {
     background: var(--widget-bg-dark);
     border-color: rgba(255, 255, 255, 0.1);
