@@ -1,12 +1,46 @@
 /* page overrides */
 body.dubbot-site-root,
+body.dubbot-site-root *,
 body.dubbot-site-root *::before,
 body.dubbot-site-root *::after {
-  font-size:      var(--db-font-size,      inherit) !important;
-  font-family:    var(--db-font-family,    inherit) !important;
-  letter-spacing: var(--db-letter-spacing, normal) !important;
-  word-spacing:   var(--db-word-spacing,   normal) !important;
-  line-height:    var(--db-line-height,    normal) !important;
+  letter-spacing: var(--db-letter-spacing, revert) !important;
+  word-spacing:   var(--db-word-spacing,   revert) !important;
+  line-height:    var(--db-line-height,    revert) !important;
+}
+
+/* Font size override - separate class for granular control */
+body.db-font-size-override {
+  font-size: var(--db-font-size) !important;
+}
+
+/* Apply font size to all elements to override inline styles */
+body.db-font-size-override *,
+body.db-font-size-override *::before,
+body.db-font-size-override *::after {
+  font-size: inherit !important;
+}
+
+/* Specific rules for form elements and interactive elements */
+body.db-font-size-override button,
+body.db-font-size-override input,
+body.db-font-size-override textarea,
+body.db-font-size-override select,
+body.db-font-size-override option,
+body.db-font-size-override label,
+body.db-font-size-override [role="button"],
+body.db-font-size-override [contenteditable],
+body.db-font-size-override .btn,
+body.db-font-size-override .form-control,
+body.db-font-size-override .form-select {
+  font-size: inherit !important;
+}
+
+/* Font family override - separate class for granular control */
+body.db-font-family-override,
+body.db-font-family-override *,
+body.db-font-family-override *::before,
+body.db-font-family-override *::after {
+  font-family: var(--db-font-family) !important;
 }
 
 /* Dark Mode Styles */

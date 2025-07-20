@@ -82,6 +82,12 @@ export default class extends Controller {
     const root = document.body;
     root.classList.remove('dubbot-site-root');
 
+    // remove font family class
+    root.classList.remove('db-font-family-override');
+
+    // remove font size class
+    root.classList.remove('db-font-size-override');
+
     // remove all contrast classes
     const contrastClasses = [
       'db-dark-mode',
