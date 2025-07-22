@@ -13,6 +13,17 @@ To add the Personalization Widget to your website, add the script to your page:
 <script src="https://example.com/db-personalization-widget.bundle.js"></script>
 ```
 
+### Self hosting
+
+Download the built JS from the [Releases](https://github.com/DubBotQA/personalization-widget/releases)
+
+### CDN
+
+Include from jsDelivr (version matches [release](https://github.com/DubBotQA/personalization-widget/releases)):
+```html
+<script src="https://cdn.jsdelivr.net/gh/DubBotQA/personalization-widget@v0.0.1/dist/db-personalization-widget.bundle.js"></script>
+```
+
 ### Configuration
 
 To customize the appearance/functionality of the widget, create a JSON config file and pass its URL to the `data-db-personalization-widget-config-url` attribute on script tag:
