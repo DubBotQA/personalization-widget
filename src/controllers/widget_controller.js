@@ -47,6 +47,8 @@ export default class extends Controller {
       cssVars.push(`${bsKey}: var(${dbKey})`);
       cssVars.push(`${bsKey}-rgb: var(${dbKey}-rgb)`);
     }
+    cssVars.push(`--db-widget-width: ${this.config.width}`);
+    cssVars.push(`--db-font-family: ${theme.font.family}`);
 
     style.textContent = `:host { ${cssVars.join(';\n')}; }`;
     this.element.appendChild(style);

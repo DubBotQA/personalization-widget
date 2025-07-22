@@ -37,17 +37,12 @@ const defaultConfig = {
     width: "400px",
     theme: {
       font: {
-        family: "Helvetica Neue, Helvetica, Arial, sans-serif",
-        size: "1rem",
+        family: "system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif"
       },
       colors: {
         primary: "#015479",
-        secondary: "#0177AC",
         background: "#fafafa",
-        bodyFont: "#000000",
-        primaryFont: "#000000",
-        secondaryFont: "#FFFFFF",
-        link: "#015479",
+        bodyFont: "#1D182A"
       }
     }
   },

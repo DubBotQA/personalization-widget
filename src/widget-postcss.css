@@ -11,26 +11,24 @@
   z-index: 9999;
 
   /* Theme Colors */
-  --widget-primary: #2563eb;
-  --widget-primary-dark: #1d4ed8;
-  --widget-primary-darker: #1e40af;
-  --widget-primary-rgb: 37, 99, 235;
+  --widget-primary: var(--db-colors-primary);
+  --widget-primary-dark: hsl(from var(--widget-primary) h calc(s + 30) calc(l - 30));
+  --widget-primary-darker: hsl(from var(--widget-primary) h calc(s + 30) calc(l - 60));
+  --widget-primary-rgb: var(--db-colors-primary-rgb);
 
   /* Backgrounds */
-  --widget-bg-light: #ffffff;
-  --widget-bg-dark: rgba(17, 24, 39, 0.98);
-  --widget-bg-card-light: #ffffff;
-  --widget-bg-card-dark: rgba(17, 24, 39, 0.95);
-  --widget-bg-footer-light: #f8fafc;
-  --widget-bg-footer-dark: rgba(31, 41, 55, 0.95);
+  --widget-bg-light: var(--db-colors-background);
+  --widget-bg-card-light: var(--widget-bg-light);
+  --widget-bg-footer-light: var(--widget-bg-light);
 
   /* Text Colors */
-  --widget-text-primary-light: #1a1a1a;
-  --widget-text-primary-dark: #f9fafb;
-  --widget-text-secondary-light: #374151;
-  --widget-text-secondary-dark: #d1d5db;
-  --widget-text-muted-light: #6b7280;
-  --widget-text-muted-dark: #9ca3af;
+  --widget-text-primary-light: var(--db-colors-bodyFont);
+
+  /* Font */
+  --widget-font-family: var(--db-font-family);
+
+  /* Size */
+  --widget-width: var(--db-widget-width);
 
   /* Design System */
   --widget-border-radius: 16px;
@@ -61,7 +59,7 @@
    Widget Foundation
    ========================== */
 .personalization-widget {
-  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  font-family: var(--widget-font-family);
   font-feature-settings: 'liga' 1, 'kern' 1;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
@@ -134,7 +132,7 @@
   transition: var(--widget-transition);
   transform-origin: bottom right;
   min-width: 320px;
-  max-width: 400px;
+  max-width: var(--widget-width);
 
   &.show {
     display: flex;
@@ -466,14 +464,14 @@
   font-size: 0.85rem;
   line-height: 1.5;
   margin-top: var(--widget-spacing-xs);
-  color: var(--widget-text-secondary-light) !important;
+  color: var(--widget-text-primary-light) !important;
   font-weight: 500;
 }
 
 .d-flex.justify-content-between {
   font-size: 0.8rem;
   font-weight: 600;
-  color: var(--widget-text-secondary-light) !important;
+  color: var(--widget-text-primary-light) !important;
 }
 
 /* ===========================
@@ -537,68 +535,6 @@
   }
 }
 
-/* ===========================
-   Dark Mode Styles
-   ========================== */
-.personalization-widget.dark-mode,
-body.db-dark-mode .personalization-widget {
-
-  & .card {
-    background: var(--widget-bg-dark);
-    border-color: rgba(255, 255, 255, 0.1);
-    color: var(--widget-text-primary-dark);
-  }
-
-  & .card-body {
-    background: var(--widget-bg-card-dark);
-    color: var(--widget-text-primary-dark);
-  }
-
-  & .card-footer {
-    background: var(--widget-bg-footer-dark);
-  }
-
-  & .form-select {
-    background: rgba(31, 41, 55, 0.9);
-    color: var(--widget-text-primary-dark);
-    border-color: rgba(255, 255, 255, 0.2);
-
-    &:focus,
-    &:hover {
-      background: rgba(31, 41, 55, 1);
-      border-color: var(--widget-primary);
-    }
-  }
-
-  & .form-label {
-    color: var(--widget-text-primary-dark) !important;
-  }
-
-  & .form-text {
-    color: var(--widget-text-secondary-dark) !important;
-  }
-
-  & .d-flex.justify-content-between {
-    color: var(--widget-text-secondary-dark) !important;
-  }
-
-  & .form-range {
-    background: rgba(75, 85, 99, 0.5);
-  }
-
-  & .btn-secondary {
-    background: rgba(55, 65, 81, 0.9);
-    color: var(--widget-text-primary-dark);
-    border-color: rgba(255, 255, 255, 0.2);
-
-    &:hover,
-    &:focus {
-      background: rgba(75, 85, 99, 1);
-      color: var(--widget-text-primary-dark);
-      border-color: rgba(255, 255, 255, 0.3);
-    }
-  }
-}
 
 /* ===========================
    Accessibility & Focus Styles
