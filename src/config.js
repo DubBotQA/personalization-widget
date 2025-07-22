@@ -12,31 +12,46 @@ const defaultConfig = {
   },
   fontSize: { default: 100, min: 100, max: 500, step: 25 },
   letterSpacing: { default: 0, min: 0, max: 5, step: 1 },
+  cursorSize: {
+    options: {
+      default: { label: 'Default', css: '', class: '' },
+      large: { label: 'Large', css: '', class: 'db-cursor-large' },
+      extraLarge: { label: 'Extra Large', css: '', class: 'db-cursor-extra-large' }
+    }
+  },
+  colorContrast: {
+    options: {
+      default: { label: 'Default', css: '', class: '' },
+      high: { label: 'High Contrast', css: 'contrast(1.5)', class: 'db-high-contrast' },
+      inverted: { label: 'Inverted Colors', css: '', class: 'db-inverted' },
+      darkMode: { label: 'Dark Mode', css: '', class: 'db-dark-mode' },
+      darkHighContrast: { label: 'Dark High Contrast', css: 'contrast(1.3)', class: 'db-dark-mode' },
+      sepia: { label: 'Sepia', css: 'sepia(0.8)', class: '' },
+      grayscale: { label: 'Grayscale', css: 'grayscale(1)', class: '' }
+    }
+  },
   ui: {
     title: "Personalization Options",
     description: "Personalize your web experience with these tools.",
-    buttonIcon: '⚙️ ',
+    buttonIcon: '&#9881;&#65039;', // HTML entity for gear emoji ⚙️
     width: "400px",
     theme: {
       font: {
-        family: "Helvetica Neue, Helvetica, Arial, sans-serif",
-        size: "1rem",
+        family: "system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif"
       },
       colors: {
         primary: "#015479",
-        secondary: "#0177AC",
         background: "#fafafa",
-        bodyFont: "#000000",
-        primaryFont: "#000000",
-        secondaryFont: "#FFFFFF",
-        link: "#015479",
+        bodyFont: "#1D182A"
       }
     }
   },
   show: [
     'change_font_family',   // displays each controller in this order
     'change_font_size',     // names match files in src/controllers/ and src/ui/
-    'change_letter_spacing' // e.g. src/controllers/change_font_size_controller.js and src/ui/change_font_size.html
+    'change_letter_spacing', // e.g. src/controllers/change_font_size_controller.js and src/ui/change_font_size.html
+    'change_cursor_size',   // cursor size options
+    'change_color_contrast' // color contrast and theme options
   ]
 };
 

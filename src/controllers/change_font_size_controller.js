@@ -4,6 +4,7 @@ import { getConfig } from '../config.js';
 import { initRange } from '../helpers/range_helper.js';
 
 const PREF_KEY = '--db-font-size';
+const CLASS_NAME = 'db-font-size-override';
 const DEFAULT_VALUE = 100
 
 export default class extends Controller {
@@ -22,7 +23,15 @@ export default class extends Controller {
     const value = this.rangeTarget.value;
     this.updateLabelText(value);
 
-    document.body.style.setProperty(PREF_KEY, `${value}%`);
+    // Apply class and CSS variable approach similar to font-family
+    if (value == 100) {
+      document.body.classList.remove(CLASS_NAME);
+      document.body.style.removeProperty(PREF_KEY);
+    } else {
+      document.body.classList.add(CLASS_NAME);
+      document.body.style.setProperty(PREF_KEY, `${value}%`);
+    }
+
     Preferences.set(PREF_KEY, value);
     this.rangeTarget.value = value
   }

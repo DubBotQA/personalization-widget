@@ -25,35 +25,56 @@ The configuration JSON is based on the `defaultConfig` object in `src/config.js`
 Example JSON config:
 ```json
 {
-    "fontFamily": {
-        "options": {
-            "comicsans": { "label": "Comic Sans", "css": "'Comic Sans MS', cursive" }
-        }
-    },
-    "ui": {
-        "title": "Personalize Website",
-        "description": "Don't like how our page looks? Use these knobs.",
-        "theme": {
-            "colors": {
-                "primary": "#000000",
-                "bodyFont": "#FFFFFF",
-                "primaryFont": "#FFFFFF",
-            }
-        }
-    },
-    "show": [
-        "change_font_family",
-        "change_font_size"
-    ]
+  "fontFamily": {
+    "options": {
+      "comicsans": { "label": "Comic Sans", "css": "'Comic Sans MS', cursive" }
+    }
+  },
+  "ui": {
+    "title": "Personalize Website",
+    "description": "Don't like how our page looks? Use these knobs.",
+    "theme": {
+      "colors": {
+        "primary": "#000000",
+        "bodyFont": "#FFFFFF",
+        "primaryFont": "#FFFFFF"
+      }
+    }
+  },
+  "show": [
+    "change_font_family",
+    "change_font_size",
+    "change_color_contrast"
+  ]
 }
 ```
 This example:
 - Adds the Comic Sans font to the font family dropdown.
 - Updates the title and description inside the widget
 - Updates the primary, body font, and primary font colors.
-- Shows only the `change_font_family` and `change_font_size` controls
+- Shows only the `change_font_family`, `change_font_size`, and `change_color_contrast` controls
 
 When no configuration is provided, the widget will use the default configuration (see `defaultConfig` in `src/config.js`).
+
+## Features
+
+The Personalization Widget currently provides the following accessibility options:
+
+- **Font Family Selection**: Choose from Sans Serif, Serif, OpenDyslexic, and other font options
+- **Font Size Adjustment**: Scale text from 100% to 500% in 25% increments
+- **Letter Spacing Control**: Adjust letter spacing from 0px to 5px for improved readability
+- **Cursor Size Options**: Choose from Default, Large, and Extra Large cursor sizes for improved visibility
+- **Color Contrast Options**: Apply visual filters including:
+  - High Contrast mode
+  - Inverted Colors
+  - Dark Mode
+  - Dark High Contrast
+  - Sepia tone
+  - Grayscale
+
+  *Note: All visual filters are applied to page content while keeping the widget itself unaffected for optimal usability.*
+- **Persistent Settings**: User preferences are saved and restored across sessions
+- **Configurable Interface**: Customize appearance and available options via JSON configuration
 
 ## Development & Contributing
 
@@ -63,7 +84,19 @@ When no configuration is provided, the widget will use the default configuration
 - `src/controllers/` – Stimulus controllers for each control module
 - `src/helpers/` – Helper functions
 - `src/ui/` – HTML fragments for each control module
+- `src/widget-postcss.css` – PostCSS-enhanced widget styles
+- `src/page-overrides.css` – CSS overrides applied to the host page
+- `postcss.config.js` – PostCSS configuration for modern CSS features
 - `dist/` – built assets (via Vite)
+
+### CSS Architecture
+
+This project uses **PostCSS** for modern CSS features:
+- CSS nesting and custom properties
+- Automatic vendor prefixes
+- Style scoping to prevent conflicts
+- Production minification
+- Shadow DOM isolation for widget styles
 
 ### Local Development
 
@@ -80,7 +113,7 @@ When no configuration is provided, the widget will use the default configuration
   ```sh
     npm run dev
   ```
-4. Open http://localhost:5173/ in the browser to test locally.
+4. Open the URL shown in your terminal (typically http://localhost:5173/) in the browser to test locally.
 
 ### Building
 
@@ -88,7 +121,38 @@ Generate a deployable db-personalization-widget.bundle.js:
 ```sh
 npm run build
 ```
-This outputs a single, bundled file to `dist/db-personalization-widget.bundle.js`
+This outputs a single, self-contained bundled file to `dist/db-personalization-widget.bundle.js` that includes:
+- All JavaScript functionality
+- PostCSS-processed widget styles
+- Bootstrap CSS
+- Page override styles
+
+The widget requires no separate CSS files - everything is embedded in the JavaScript bundle for easy deployment.
+
+### Testing Production Build
+
+To test the production build locally:
+```sh
+npm run test-dist
+```
+
+This command will:
+1. **Build the latest code** automatically with `npm run build`
+2. **Start a local server** on `http://localhost:8082`
+3. **Automatically open your browser** to a test page using the production build
+4. **Serve the bundled widget** exactly as it would appear when deployed
+
+The test page (`dist/dist-test.html`) is automatically generated during the build process and mirrors the development demo page but uses the production bundle instead of the development source files.
+
+**Note**: The server will continue running until you stop it manually (Ctrl+C). The script automatically handles port conflicts by stopping any existing servers on port 8082.
+
+### Available Scripts
+
+| Command | Description |
+|---------|-------------|
+| `npm run dev` | Start the development server with hot reload |
+| `npm run build` | Build the production bundle and generate test files |
+| `npm run test-dist` | Start a local server and open the production build for testing |
 
 ## Contributing
 - Open a [GitHub issue](https://github.com/DubBotQA/personalization-widget/issues) for feature requests or bug reports

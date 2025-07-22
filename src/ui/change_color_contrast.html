@@ -1,0 +1,15 @@
+<!-- Color Contrast Control -->
+<div class="mb-3" data-controller="change-color-contrast">
+  <label for="contrast-select" class="form-label">Color Contrast</label>
+  <select
+    id="contrast-select"
+    class="form-select"
+    data-change-color-contrast-target="select"
+    data-action="change->change-color-contrast#change"
+    aria-label="Select color contrast mode"
+    aria-describedby="contrast-help">
+  </select>
+  <div id="contrast-help" class="form-text text-muted small">
+    Adjust colors for better visibility and reduced eye strain
+  </div>
+</div>

@@ -47,6 +47,8 @@ export default class extends Controller {
       cssVars.push(`${bsKey}: var(${dbKey})`);
       cssVars.push(`${bsKey}-rgb: var(${dbKey}-rgb)`);
     }
+    cssVars.push(`--db-widget-width: ${this.config.width}`);
+    cssVars.push(`--db-font-family: ${theme.font.family}`);
 
     style.textContent = `:host { ${cssVars.join(';\n')}; }`;
     this.element.appendChild(style);
@@ -81,6 +83,35 @@ export default class extends Controller {
     // remove our junk from the main doc
     const root = document.body;
     root.classList.remove('dubbot-site-root');
+
+    // remove font family class
+    root.classList.remove('db-font-family-override');
+
+    // remove font size class
+    root.classList.remove('db-font-size-override');
+
+    // remove all contrast classes
+    const contrastClasses = [
+      'db-dark-mode',
+      'db-high-contrast',
+      'db-inverted'
+    ];
+    contrastClasses.forEach(cls => {
+      root.classList.remove(cls);
+    });
+
+    // remove all cursor classes
+    const cursorClasses = [
+      'db-cursor-large',
+      'db-cursor-extra-large'
+    ];
+    cursorClasses.forEach(cls => {
+      root.classList.remove(cls);
+    });
+
+    // clear inline styles that might have been applied
+    root.style.filter = '';
+    root.style.cursor = '';
 
     // clear all preferences
     Preferences.reset();

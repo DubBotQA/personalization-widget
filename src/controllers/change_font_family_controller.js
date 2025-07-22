@@ -4,6 +4,7 @@ import { getConfig } from '../config.js';
 import Preferences from '../preferences.js';
 
 const PREF_KEY = '--db-font-family';
+const CLASS_NAME = 'db-font-family-override';
 const DEFAULT_VALUE = 'default';
 
 export default class extends Controller {
@@ -39,7 +40,16 @@ export default class extends Controller {
       this.loadFont(value);
     }
 
-    document.body.style.setProperty(PREF_KEY, fontOptions.css);
+    // If "Page Default" is selected (empty css), remove the class entirely
+    // This allows original page styling (including inline styles) to show through
+    if (fontOptions.css === '') {
+      document.body.classList.remove(CLASS_NAME);
+      document.body.style.removeProperty(PREF_KEY);
+    } else {
+      document.body.classList.add(CLASS_NAME);
+      document.body.style.setProperty(PREF_KEY, fontOptions.css);
+    }
+
     Preferences.set(PREF_KEY, value);
     this.selectTarget.value = value;
   }

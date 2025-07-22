@@ -1,0 +1,15 @@
+<!-- Cursor Size Control -->
+<div class="mb-3" data-controller="change-cursor-size">
+  <label for="cursor-size-select" class="form-label">Cursor Size</label>
+  <select
+    id="cursor-size-select"
+    class="form-select"
+    data-change-cursor-size-target="select"
+    data-action="change->change-cursor-size#change"
+    aria-label="Select cursor size"
+    aria-describedby="cursor-help">
+  </select>
+  <div id="cursor-help" class="form-text text-muted small">
+    Choose a larger cursor for easier visibility and clicking
+  </div>
+</div>
