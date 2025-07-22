@@ -4,6 +4,7 @@ import { getConfig } from '../config.js';
 import { initRange } from '../helpers/range_helper.js';
 
 const PREF_KEY = '--db-letter-spacing';
+const CLASS_NAME = 'db-letter-spacing-override';
 const DEFAULT_VALUE = 0
 
 export default class extends Controller {
@@ -24,8 +25,10 @@ export default class extends Controller {
     Preferences.set(PREF_KEY, value);
 
     if (value > 0) {
+      document.body.classList.add(CLASS_NAME);
       document.body.style.setProperty(PREF_KEY, `${value}px`);
     } else {
+      document.body.classList.remove(CLASS_NAME);
       document.body.style.removeProperty(PREF_KEY);
     }
   }

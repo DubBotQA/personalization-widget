@@ -3,13 +3,16 @@ body.dubbot-site-root,
 body.dubbot-site-root *,
 body.dubbot-site-root *::before,
 body.dubbot-site-root *::after {
-  letter-spacing: var(--db-letter-spacing, revert) !important;
-  word-spacing:   var(--db-word-spacing,   revert) !important;
   line-height:    var(--db-line-height,    revert) !important;
 }
 
+body.db-letter-spacing-override > *:not(#dubbot-personalization-widget) {
+  letter-spacing: var(--db-letter-spacing, revert) !important;
+  word-spacing:   var(--db-word-spacing,   revert) !important;
+}
+
 /* Font size override - separate class for granular control */
-body.db-font-size-override {
+body.db-font-size-override > *:not(#dubbot-personalization-widget) {
   font-size: var(--db-font-size) !important;
 }
 
