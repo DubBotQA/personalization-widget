@@ -1,16 +1,26 @@
 {
   "name": "dubbot-personalization",
   "version": "0.0.3",
-  "description": "",
+  "description": "A customizable accessibility widget that provides personalization options including font family, font size, letter spacing, cursor size, color contrast, and reading guide features.",
   "main": "index.js",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "test-dist": "npm run build && echo 'Starting server and opening browser...' && cd dist && (pkill -f 'serve.*8082' 2>/dev/null || true) && npx serve . -p 8082 & sleep 3 && npx open-cli http://localhost:8082/dist-test.html"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "accessibility",
+    "personalization",
+    "widget",
+    "font-size",
+    "contrast",
+    "reading-guide",
+    "stimulus",
+    "web-accessibility",
+    "a11y"
+  ],
+  "author": "DubBotQA",
+  "license": "MIT",
   "devDependencies": {
     "autoprefixer": "^10.4.16",
     "cssnano": "^6.0.3",

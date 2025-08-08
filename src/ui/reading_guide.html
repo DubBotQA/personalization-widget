@@ -1,0 +1,18 @@
+<!-- Reading Guide Control -->
+<div class="mb-3" data-controller="reading-guide">
+  <div class="form-check form-switch">
+    <input
+      class="form-check-input"
+      type="checkbox"
+      id="reading-guide-toggle"
+      data-reading-guide-target="toggle"
+      data-action="change->reading-guide#change"
+      aria-describedby="reading-guide-help">
+    <label class="form-check-label" for="reading-guide-toggle">
+      Reading Guide
+    </label>
+  </div>
+  <div id="reading-guide-help" class="form-text text-muted small">
+    Highlights a narrow strip around your cursor while dimming the rest of the screen
+  </div>
+</div>

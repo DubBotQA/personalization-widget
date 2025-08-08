@@ -30,6 +30,14 @@ const defaultConfig = {
       grayscale: { label: 'Grayscale', css: 'grayscale(1)', class: '' }
     }
   },
+  readingGuide: {
+    opacity: 0.6, // Default opacity for the dimmed area (0.0 = transparent, 1.0 = fully opaque)
+    height: 60, // Default height of the reading guide strip in pixels
+    options: {
+      off: { label: 'Off' },
+      on: { label: 'On' }
+    }
+  },
   ui: {
     title: "Personalization Options",
     description: "Personalize your web experience with these tools.",
@@ -47,11 +55,12 @@ const defaultConfig = {
     }
   },
   show: [
-    'change_font_family',   // displays each controller in this order
-    'change_font_size',     // names match files in src/controllers/ and src/ui/
+    'change_font_family',    // displays each controller in this order
+    'change_font_size',      // names match files in src/controllers/ and src/ui/
     'change_letter_spacing', // e.g. src/controllers/change_font_size_controller.js and src/ui/change_font_size.html
-    'change_cursor_size',   // cursor size options
-    'change_color_contrast' // color contrast and theme options
+    'change_cursor_size',    // cursor size options
+    'change_color_contrast', // color contrast and theme options
+    'reading_guide'          // reading guide toggle
   ]
 };
 

@@ -41,6 +41,10 @@ Example JSON config:
       "comicsans": { "label": "Comic Sans", "css": "'Comic Sans MS', cursive" }
     }
   },
+  "readingGuide": {
+    "opacity": 0.8,
+    "height": 80
+  },
   "ui": {
     "title": "Personalize Website",
     "description": "Don't like how our page looks? Use these knobs.",
@@ -55,15 +59,18 @@ Example JSON config:
   "show": [
     "change_font_family",
     "change_font_size",
-    "change_color_contrast"
+    "change_color_contrast",
+    "reading_guide"
   ]
 }
 ```
 This example:
 - Adds the Comic Sans font to the font family dropdown.
+- Sets the Reading Guide dimming opacity to 0.8 (80% opacity, making the dimmed areas darker)
+- Sets the Reading Guide height to 80 pixels (taller than the default 60px)
 - Updates the title and description inside the widget
 - Updates the primary, body font, and primary font colors.
-- Shows only the `change_font_family`, `change_font_size`, and `change_color_contrast` controls
+- Shows only the `change_font_family`, `change_font_size`, `change_color_contrast`, and `reading_guide` controls
 
 When no configuration is provided, the widget will use the default configuration (see `defaultConfig` in `src/config.js`).
 
@@ -75,6 +82,23 @@ The Personalization Widget currently provides the following accessibility option
 - **Font Size Adjustment**: Scale text from 100% to 500% in 25% increments
 - **Letter Spacing Control**: Adjust letter spacing from 0px to 5px for improved readability
 - **Cursor Size Options**: Choose from Default, Large, and Extra Large cursor sizes for improved visibility
+- **Reading Guide**: Toggle a horizontal reading guide that highlights a narrow strip around the cursor while dimming the rest of the screen, helping users focus on specific lines of text
+
+### Configuration Options
+
+#### Reading Guide
+The Reading Guide can be customized with the following options:
+- **`opacity`** (number, default: `0.6`): Controls how dark the dimmed areas become when the reading guide is active. Values range from 0.0 (completely transparent) to 1.0 (completely opaque). A value of 0.6 provides 60% opacity for comfortable reading.
+- **`height`** (number, default: `60`): Controls the height of the reading guide strip in pixels. Larger values create a taller highlighted area, while smaller values create a narrower focus band.
+
+```json
+{
+  "readingGuide": {
+    "opacity": 0.8,  // Makes dimmed areas darker (80% opacity)
+    "height": 80     // Makes the reading guide strip taller
+  }
+}
+```
 - **Color Contrast Options**: Apply visual filters including:
   - High Contrast mode
   - Inverted Colors
@@ -153,7 +177,12 @@ This command will:
 3. **Automatically open your browser** to a test page using the production build
 4. **Serve the bundled widget** exactly as it would appear when deployed
 
-The test page (`dist/dist-test.html`) is automatically generated during the build process and mirrors the development demo page but uses the production bundle instead of the development source files.
+The build process creates multiple test files:
+- **`dist/dist-test.html`** - Standard production test using default configuration
+- **`dist/dist-test-config.html`** - Production test with custom configuration from `sample-config.json`
+- **`dist/sample-config.json`** - Sample configuration file demonstrating customization options
+
+You can test both default and custom configurations by navigating to either test file in your browser.
 
 **Note**: The server will continue running until you stop it manually (Ctrl+C). The script automatically handles port conflicts by stopping any existing servers on port 8082.
 

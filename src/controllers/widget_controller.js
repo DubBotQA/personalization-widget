@@ -41,13 +41,13 @@ export default class extends Controller {
     for (const [key, value] of Object.entries(colors)) {
       const dbKey = `--db-colors-${key}`;
       const bsKey = `--bs-${key}`;
-      const rgb = hexToRgb(value)
+      const rgb = hexToRgb(value);
       cssVars.push(`${dbKey}: ${value}`);
-      cssVars.push(`${dbKey}-rgb: ${hexToRgb(value)}`);
+      cssVars.push(`${dbKey}-rgb: ${rgb}`);
       cssVars.push(`${bsKey}: var(${dbKey})`);
       cssVars.push(`${bsKey}-rgb: var(${dbKey}-rgb)`);
     }
-    cssVars.push(`--db-widget-width: ${this.config.width}`);
+    cssVars.push(`--db-widget-width: ${this.config.ui.width}`);
     cssVars.push(`--db-font-family: ${theme.font.family}`);
 
     style.textContent = `:host { ${cssVars.join(';\n')}; }`;
@@ -55,7 +55,7 @@ export default class extends Controller {
   }
 
   initControllerUIs() {
-    const fragmentModules = import.meta.glob('../ui/*.html', { as: 'raw', eager: true });
+    const fragmentModules = import.meta.glob('../ui/*.html', { query: '?raw', import: 'default', eager: true });
     this.config.show.forEach((controller) => {
       const path = `../ui/${controller}.html`;
       const html = fragmentModules[path];
@@ -108,6 +108,12 @@ export default class extends Controller {
     cursorClasses.forEach(cls => {
       root.classList.remove(cls);
     });
+
+    // remove reading guide
+    root.classList.remove('db-reading-guide-enabled');
+    const readingGuideContainer = document.getElementById('db-reading-guide-container');
+    if (readingGuideContainer)
+      readingGuideContainer.remove();
 
     // clear inline styles that might have been applied
     root.style.filter = '';

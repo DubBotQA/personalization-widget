@@ -1,0 +1,76 @@
+{
+  "fontFamily": {
+    "options": {
+      "default": { "label": "Site Default", "css": "" },
+      "sans": { "label": "Sans Serif Pro", "css": "Helvetica Neue, Helvetica, Arial, sans-serif" },
+      "serif": { "label": "Serif Classic", "css": "Georgia, 'Times New Roman', serif" },
+      "openDyslexic": { "label": "OpenDyslexic", "css": "\"Open-Dyslexic\", sans-serif", "load": "https://fonts.cdnfonts.com/css/open-dyslexic" },
+      "comicSans": { "label": "Comic Sans", "css": "'Comic Sans MS', cursive" },
+      "monospace": { "label": "Monospace", "css": "'Courier New', Consolas, monospace" }
+    }
+  },
+  "fontSize": {
+    "default": 110,
+    "min": 75,
+    "max": 600,
+    "step": 15
+  },
+  "letterSpacing": {
+    "default": 1,
+    "min": 0,
+    "max": 8,
+    "step": 0.5
+  },
+  "cursorSize": {
+    "options": {
+      "default": { "label": "Normal", "css": "", "class": "" },
+      "large": { "label": "Large Cursor", "css": "", "class": "db-cursor-large" },
+      "extraLarge": { "label": "Extra Large Cursor", "css": "", "class": "db-cursor-extra-large" },
+      "huge": { "label": "Huge Cursor", "css": "cursor: url('data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"48\" height=\"48\" viewBox=\"0 0 24 24\" fill=\"%23000\"><path d=\"M13.64 21.97c-.21 0-.42-.05-.61-.15-.39-.2-.64-.59-.64-1.03v-6.26l-5.26 3.95c-.33.25-.77.32-1.18.18-.41-.14-.71-.48-.79-.91L2.13 4.2c-.1-.56.23-1.1.77-1.28.54-.18 1.13.02 1.4.48l8.1 13.84c.24.41.18.94-.16 1.28-.19.19-.45.29-.71.29-.05 0-.1 0-.15-.01z\"/></svg>'), auto !important", "class": "" }
+    }
+  },
+  "colorContrast": {
+    "options": {
+      "default": { "label": "Normal Colors", "css": "", "class": "" },
+      "high": { "label": "High Contrast Mode", "css": "contrast(2.0)", "class": "db-high-contrast" },
+      "inverted": { "label": "Inverted Colors", "css": "", "class": "db-inverted" },
+      "darkMode": { "label": "Dark Theme", "css": "", "class": "db-dark-mode" },
+      "darkHighContrast": { "label": "Dark High Contrast", "css": "contrast(1.8)", "class": "db-dark-mode" },
+      "sepia": { "label": "Sepia Filter", "css": "sepia(1.0)", "class": "" },
+      "grayscale": { "label": "Grayscale Filter", "css": "grayscale(1.0)", "class": "" },
+      "protanopia": { "label": "Protanopia Filter", "css": "hue-rotate(180deg)", "class": "" }
+    }
+  },
+  "readingGuide": {
+    "opacity": 0.75,
+    "height": 90,
+    "options": {
+      "off": { "label": "Disabled" },
+      "on": { "label": "Enabled" }
+    }
+  },
+  "ui": {
+    "title": "Accessibility & Personalization Tools",
+    "description": "Customize this website to match your preferences and accessibility needs.",
+    "buttonIcon": "🔧",
+    "width": "450px",
+    "theme": {
+      "font": {
+        "family": "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif"
+      },
+      "colors": {
+        "primary": "#2563eb",
+        "background": "#f8fafc",
+        "bodyFont": "#1e293b"
+      }
+    }
+  },
+  "show": [
+    "change_font_family",
+    "change_font_size",
+    "change_letter_spacing",
+    "reading_guide",
+    "change_cursor_size",
+    "change_color_contrast"
+  ]
+}
