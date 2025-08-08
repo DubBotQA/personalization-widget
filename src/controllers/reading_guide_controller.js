@@ -22,10 +22,11 @@ export default class extends Controller {
     if (!document.getElementById('db-reading-guide-container')) {
       const opacity = this.config.readingGuide.opacity || 0.6;
       const height = this.config.readingGuide.height || 60;
+      const fadePx = 12;
 
       const container = this.createContainer();
-      const topOverlay = this.createTopOverlay(opacity);
-      const bottomOverlay = this.createBottomOverlay(opacity);
+      const topOverlay = this.createTopOverlay(opacity, fadePx);
+      const bottomOverlay = this.createBottomOverlay(opacity, fadePx);
 
       container.appendChild(topOverlay);
       container.appendChild(bottomOverlay);
@@ -51,7 +52,7 @@ export default class extends Controller {
     return container;
   }
 
-  createTopOverlay(opacity) {
+  createTopOverlay(opacity, fadePx) {
     const topOverlay = document.createElement('div');
     topOverlay.id = 'db-reading-guide-top';
     topOverlay.style.cssText = `
@@ -59,12 +60,18 @@ export default class extends Controller {
       top: 0;
       left: 0;
       width: 100%;
-      background: rgba(0, 0, 0, ${opacity});
+      /* Solid to subtle fade near the bottom edge */
+      background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, ${opacity}) 0%,
+        rgba(0, 0, 0, ${opacity}) calc(100% - ${fadePx}px),
+        rgba(0, 0, 0, 0) 100%
+      );
     `;
     return topOverlay;
   }
 
-  createBottomOverlay(opacity) {
+  createBottomOverlay(opacity, fadePx) {
     const bottomOverlay = document.createElement('div');
     bottomOverlay.id = 'db-reading-guide-bottom';
     bottomOverlay.style.cssText = `
@@ -72,7 +79,13 @@ export default class extends Controller {
       left: 0;
       width: 100%;
       bottom: 0;
-      background: rgba(0, 0, 0, ${opacity});
+      /* Subtle fade near the top edge to solid */
+      background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0px,
+        rgba(0, 0, 0, ${opacity}) ${fadePx}px,
+        rgba(0, 0, 0, ${opacity}) 100%
+      );
     `;
     return bottomOverlay;
   }
