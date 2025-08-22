@@ -22,6 +22,7 @@ export default class extends Controller {
   change() {
     const value = this.rangeTarget.value;
     this.updateLabelText(value);
+    this.updateAriaValue(value);
 
     // Apply class and CSS variable approach similar to font-family
     if (value == 100) {
@@ -37,11 +38,15 @@ export default class extends Controller {
   }
 
   updateLabelText(value) {
-    if(value == 100) {
+    if (value == 100) {
       this.labelTarget.textContent = "Page Default";
     } else {
       this.labelTarget.textContent = `${value}%`;
     }
   }
 
+  updateAriaValue(value) {
+    this.rangeTarget.setAttribute('aria-valuenow', value);
+    this.rangeTarget.setAttribute('aria-valuetext', value == 100 ? 'Page Default (100%)' : `${value}%`);
+  }
 }

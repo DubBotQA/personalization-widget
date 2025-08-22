@@ -22,6 +22,7 @@ export default class extends Controller {
   change() {
     const value = this.rangeTarget.value;
     this.updateLabelText(value);
+    this.updateAriaValue(value);
     Preferences.set(PREF_KEY, value);
 
     if (value > 0) {
@@ -34,10 +35,15 @@ export default class extends Controller {
   }
 
   updateLabelText(value) {
-    if(value == 0) {
+    if (value == 0) {
       this.labelTarget.textContent = "Page Default";
     } else {
       this.labelTarget.textContent = `${value}px`;
     }
+  }
+
+  updateAriaValue(value) {
+    this.rangeTarget.setAttribute('aria-valuenow', value);
+    this.rangeTarget.setAttribute('aria-valuetext', value == 0 ? 'Page Default (0px)' : `${value}px`);
   }
 }

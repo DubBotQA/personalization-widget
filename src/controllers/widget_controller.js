@@ -12,7 +12,7 @@ export default class extends Controller {
     // we can't async the stimulus init function
     // and we need the configuration for the UI init
     // and only want the UI to initialize once
-    if(!this.initialized) {
+    if (!this.initialized) {
       this.initUI();
     }
 
@@ -60,7 +60,7 @@ export default class extends Controller {
       const path = `../ui/${controller}.html`;
       const html = fragmentModules[path];
 
-      if(!html) { return } // if there's no HTML, then move on
+      if (!html) { return } // if there's no HTML, then move on
 
       const wrapper = document.createElement('div');
       wrapper.innerHTML = html;
@@ -76,7 +76,9 @@ export default class extends Controller {
   }
 
   toggle() {
-    this.cardTarget.classList.toggle('show');
+    const isOpen = this.cardTarget.classList.toggle('show');
+    this.cardTarget.setAttribute('aria-hidden', !isOpen);
+    this.buttonTarget.setAttribute('aria-expanded', isOpen);
   }
 
   reset() {
