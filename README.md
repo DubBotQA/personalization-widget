@@ -1,10 +1,7 @@
 # Personalization Widget
 
-(Work in Progress)
-
 - Drop in this widget to add some basic personalization options to your website.
 - **Not a drop-in replacement for proper site accessibility!**
-- There is still plenty to do here. This is just getting started.
 
 ## Getting Started
 
@@ -21,7 +18,7 @@ Download the built JS from the [Releases](https://github.com/DubBotQA/personaliz
 
 Include from jsDelivr (version matches [release](https://github.com/DubBotQA/personalization-widget/releases)):
 ```html
-<script src="https://cdn.jsdelivr.net/gh/DubBotQA/personalization-widget@v0.0.1/dist/db-personalization-widget.bundle.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/DubBotQA/personalization-widget@v0.0.5/dist/db-personalization-widget.bundle.js"></script>
 ```
 
 ### Configuration
