@@ -1,6 +1,6 @@
 {
   "name": "dubbot-personalization",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "A customizable accessibility widget that provides personalization options including font family, font size, letter spacing, cursor size, color contrast, and reading guide features.",
   "main": "index.js",
   "scripts": {
