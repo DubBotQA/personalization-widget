@@ -1,10 +1,4 @@
 /* page overrides */
-body.dubbot-site-root,
-body.dubbot-site-root *,
-body.dubbot-site-root *::before,
-body.dubbot-site-root *::after {
-  line-height:    var(--db-line-height,    revert) !important;
-}
 
 body.db-letter-spacing-override > *:not(#dubbot-personalization-widget) {
   letter-spacing: var(--db-letter-spacing, revert) !important;
