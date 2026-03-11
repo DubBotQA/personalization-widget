@@ -4,6 +4,23 @@ import pageOverridesCSS from './page-overrides.css?raw';
 import bootstrapCSS from 'bootstrap/dist/css/bootstrap.min.css?raw';
 import { Application } from '@hotwired/stimulus';
 
+const COLOR_PRESETS = {
+  StandardBlue: '#0000FF',
+  PurplePop: '#B852EE',
+  BrickRed: '#9C0E1D',
+  TrueBlack: '#000000',
+  ForestGreen: '#0E6328',
+  VioletPurple: '#0E6328'
+};
+
+const SCRIPT_ATTRIBUTE_PARSERS = {
+  dbPersonalizationWidgetConfigUrl: (value) => value,
+  colorPrimary: resolveColorValue,
+  colorBackground: resolveColorValue,
+  colorFont: resolveColorValue,
+  position: normalizePosition
+};
+
 function injectWidget() {
   // Inject page overrides for personalization features
   const pageStyle = document.createElement('style');
@@ -36,6 +53,16 @@ function injectWidget() {
 
 
   const widgetRoot = shadow.getElementById('db-widget-root');
+
+  // set config from attributes
+  const scriptAttributes = getScriptAttributes();
+  Object.entries(scriptAttributes).forEach(([key, value]) => {
+    if (!value) {
+      return;
+    }
+
+    host.setAttribute(`data-${camelToKebab(key)}`, value);
+  });
 
   // Start Stimulus
   const app = Application.start(widgetRoot);
@@ -83,4 +110,60 @@ function copyBootstrapVarsToHost(shadowRoot) {
       console.warn('[DubBot Personalization Widget] Could not access stylesheet:', err);
     }
   }
+}
+
+function getScriptAttributes() {
+  const script = getWidgetScriptElement();
+
+  if (!script) {
+    return {};
+  }
+
+  return Object.entries(SCRIPT_ATTRIBUTE_PARSERS).reduce((attributes, [key, parser]) => {
+    const value = parser(script.dataset[key]);
+    if (value) {
+      attributes[key] = value;
+    }
+    return attributes;
+  }, {});
+}
+
+function getWidgetScriptElement() {
+  if (document.currentScript) {
+    return document.currentScript;
+  }
+
+  // Fallback for Vite Dev Mode (uses Modules, which doesn't include currentScript.dataset)
+  const scripts = document.getElementsByTagName('script');
+  return Array.from(scripts).find((s) =>
+    s.src.includes('personalization-widget') || s.src.includes('main.js')
+  );
+}
+
+function normalizePosition(value) {
+  if (!value) {
+    return null;
+  }
+
+  const normalized = value.toLowerCase();
+  return normalized === 'left' || normalized === 'right' ? normalized : null;
+}
+
+function resolveColorValue(value) {
+  if (!value) {
+    return null;
+  }
+
+  const normalized = value.trim();
+  const lowerCased = normalized.toLowerCase();
+
+  if (normalized.startsWith('#') || lowerCased.startsWith('rgb')) {
+    return normalized;
+  }
+
+  return COLOR_PRESETS[normalized] || normalized;
+}
+
+function camelToKebab(value) {
+  return value.replace(/([a-z0-9])([A-Z])/g, '$1-$2').toLowerCase();
 }

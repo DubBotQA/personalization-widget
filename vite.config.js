@@ -24,13 +24,15 @@ export default {
     {
       name: 'create-dist-test-html',
       writeBundle() {
+        const devScriptTag = /<script[\s\S]*?type="module"[\s\S]*?src="\/src\/main\.js"[\s\S]*?><\/script>/;
+
         // Read the index.html file
         const indexHtml = readFileSync('index.html', 'utf-8');
 
         // Create standard dist test file
         const distTestHtml = indexHtml
           .replace(
-            '<script type="module" src="/src/main.js"></script>',
+            devScriptTag,
             '<script src="./db-personalization-widget.bundle.js"></script>'
           )
           .replace(
@@ -41,7 +43,7 @@ export default {
         // Create config test file with configuration
         const distTestConfigHtml = indexHtml
           .replace(
-            '<script type="module" src="/src/main.js"></script>',
+            devScriptTag,
             '<script src="./db-personalization-widget.bundle.js" data-db-personalization-widget-config-url="./sample-config.json"></script>'
           )
           .replace(
@@ -67,4 +69,3 @@ export default {
     }
   ]
 };
-

@@ -22,7 +22,7 @@
   --widget-bg-footer-light: var(--widget-bg-light);
 
   /* Text Colors */
-  --widget-text-primary-light: var(--db-colors-bodyFont);
+  --widget-text-primary-light: var(--db-colors-font);
 
   /* Font */
   --widget-font-family: var(--db-font-family);
@@ -53,6 +53,27 @@
 
   /* Effects */
   --widget-backdrop-blur: blur(20px);
+}
+
+:host([data-position="left"]) {
+  left: 1.5rem;
+  right: auto;
+}
+
+/* Align items to the left when the widget is on the left */
+:host([data-position="left"]) .personalization-widget {
+  align-items: flex-start;
+}
+
+:host([data-position="right"]) {
+  right: 1.5rem;
+  left: auto;
+}
+
+/* Align items to the right when the widget is on the right */
+:host([data-position="right"]) .personalization-widget,
+:host(:not([data-position])) .personalization-widget {
+  align-items: flex-end;
 }
 
 /* ===========================
@@ -98,7 +119,7 @@
 }
 
 .toggle-btn:hover {
-  transform: rotate(45deg);
+  transform: translateY(-2px);
   box-shadow: var(--widget-shadow-lg);
   background: linear-gradient(135deg, var(--widget-primary-dark), var(--widget-primary-darker)) !important;
 }
@@ -109,14 +130,6 @@
   background: linear-gradient(135deg, var(--widget-primary), var(--widget-primary-dark)) !important;
 }
 
-.toggle-btn:active {
-  transform: rotate(45deg);
-}
-
-/* Options panel open state - rotate the entire button */
-.options-panel.show ~ .toggle-btn {
-  transform: rotate(180deg);
-}
 
 /* ===========================
    Options Panel
@@ -583,7 +596,7 @@
   }
 
   .toggle-btn:hover {
-    transform: rotate(45deg);
+    transform: none;
   }
 }
 

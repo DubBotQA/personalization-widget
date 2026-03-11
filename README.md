@@ -23,6 +23,31 @@ Include from jsDelivr (version matches [release](https://github.com/DubBotQA/per
 
 ### Configuration
 
+For simple out-of-the-box setup, you can configure the widget directly on the script tag without a JSON file:
+```html
+<script
+  src="https://cdn.jsdelivr.net/gh/DubBotQA/personalization-widget@v0.0.5/dist/db-personalization-widget.bundle.js"
+  data-color-primary="StandardBlue"
+  data-position="left"
+></script>
+```
+
+Supported script attributes:
+- `data-position="left|right"`
+- `data-color-primary="StandardBlue|PurplePop|BrickRed|TrueBlack|ForestGreen|VioletPurple|#000000|rgb(0, 0, 0)|rgba(0, 0, 0, 0.5)"`
+- `data-color-background="StandardBlue|PurplePop|BrickRed|TrueBlack|ForestGreen|VioletPurple|#ffffff|rgb(...)|rgba(...)"`
+- `data-color-font="StandardBlue|PurplePop|BrickRed|TrueBlack|ForestGreen|VioletPurple|#111111|rgb(...)|rgba(...)"`
+
+Color values:
+- `StandardBlue` = `#0000FF`
+- `PurplePop` = `#B852EE`
+- `BrickRed` = `#9C0E1D`
+- `TrueBlack` = `#000000`
+- `ForestGreen` = `#0E6328`
+- `VioletPurple` = `#0E6328`
+
+If a `data-color-*` value starts with `#`, `rgb`, or `rgba`, that literal color value is used as-is.
+
 To customize the appearance/functionality of the widget, create a JSON config file and pass its URL to the `data-db-personalization-widget-config-url` attribute on script tag:
 ```html
 <script src="https://example.com/db-personalization-widget.bundle.js" data-db-personalization-widget-config-url="https://example.com/widget-config.json"></script>
@@ -48,8 +73,7 @@ Example JSON config:
     "theme": {
       "colors": {
         "primary": "#000000",
-        "bodyFont": "#FFFFFF",
-        "primaryFont": "#FFFFFF"
+        "font": "#FFFFFF",
       }
     }
   },
@@ -66,7 +90,7 @@ This example:
 - Sets the Reading Guide dimming opacity to 0.8 (80% opacity, making the dimmed areas darker)
 - Sets the Reading Guide height to 80 pixels (taller than the default 60px)
 - Updates the title and description inside the widget
-- Updates the primary, body font, and primary font colors.
+- Updates the primary and font colors.
 - Shows only the `change_font_family`, `change_font_size`, `change_color_contrast`, and `reading_guide` controls
 
 When no configuration is provided, the widget will use the default configuration (see `defaultConfig` in `src/config.js`).
