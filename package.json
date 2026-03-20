@@ -30,7 +30,7 @@
     "postcss-nested": "^6.0.1",
     "postcss-prefixwrap": "^1.0.77",
     "postcss-preset-env": "^9.3.0",
-    "serve": "^14.2.4",
+    "serve": "^14.2.6",
     "vite": "^6.4.1"
   },
   "dependencies": {
