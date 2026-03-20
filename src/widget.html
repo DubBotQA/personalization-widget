@@ -1,4 +1,4 @@
-<div data-controller="widget" class="personalization-widget dubbot-personalization-widget" role="region" aria-label="Accessibility personalization options">
+<div data-controller="widget" class="personalization-widget dubbot-personalization-widget d-flex flex-column" role="region" aria-label="Accessibility personalization options">
   <div id="options-panel" class="card options-panel" data-widget-target="card" role="dialog" aria-labelledby="widget-title" aria-hidden="true">
     <div class="card-header d-flex justify-content-between align-items-center">
       <strong id="widget-title" data-widget-target="title">Personalization Options</strong>
@@ -28,7 +28,7 @@
     </div>
   </div>
   <button
-    class="btn btn-primary rounded-circle toggle-btn float-end"
+    class="btn btn-primary rounded-circle toggle-btn"
     data-widget-target="button"
     data-action="click->widget#toggle"
     aria-label="Toggle personalization options"

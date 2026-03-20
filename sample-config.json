@@ -61,7 +61,7 @@
       "colors": {
         "primary": "#2563eb",
         "background": "#f8fafc",
-        "bodyFont": "#1e293b"
+        "font": "#1e293b"
       }
     }
   },
