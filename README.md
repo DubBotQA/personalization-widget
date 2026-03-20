@@ -18,7 +18,7 @@ Download the built JS from the [Releases](https://github.com/DubBotQA/personaliz
 
 Include from jsDelivr (version matches [release](https://github.com/DubBotQA/personalization-widget/releases)):
 ```html
-<script src="https://cdn.jsdelivr.net/gh/DubBotQA/personalization-widget@v0.0.5/dist/db-personalization-widget.bundle.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/DubBotQA/personalization-widget@v0.0.6/dist/db-personalization-widget.bundle.js"></script>
 ```
 
 ### Configuration
@@ -26,7 +26,7 @@ Include from jsDelivr (version matches [release](https://github.com/DubBotQA/per
 For simple out-of-the-box setup, you can configure the widget directly on the script tag without a JSON file:
 ```html
 <script
-  src="https://cdn.jsdelivr.net/gh/DubBotQA/personalization-widget@v0.0.5/dist/db-personalization-widget.bundle.js"
+  src="https://cdn.jsdelivr.net/gh/DubBotQA/personalization-widget@v0.0.6/dist/db-personalization-widget.bundle.js"
   data-color-primary="StandardBlue"
   data-position="left"
 ></script>
