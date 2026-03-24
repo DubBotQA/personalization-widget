@@ -10,7 +10,7 @@ const COLOR_PRESETS = {
   BrickRed: '#9C0E1D',
   TrueBlack: '#000000',
   ForestGreen: '#0E6328',
-  VioletPurple: '#0E6328'
+  VioletPurple: '#B852EE'
 };
 
 const SCRIPT_ATTRIBUTE_PARSERS = {
