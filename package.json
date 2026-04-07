@@ -31,7 +31,7 @@
     "postcss-prefixwrap": "^1.0.77",
     "postcss-preset-env": "^9.3.0",
     "serve": "^14.2.6",
-    "vite": "^6.4.1"
+    "vite": "^6.4.2"
   },
   "dependencies": {
     "@hotwired/stimulus": "^3.2.2",
