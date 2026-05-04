@@ -13,3 +13,6 @@ pnpm-debug.log*
 
 # Logs
 *.log
+
+# vim
+*.swp
