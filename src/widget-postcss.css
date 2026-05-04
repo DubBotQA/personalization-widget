@@ -615,8 +615,6 @@
 @media (max-width: 480px) {
   :host {
     bottom: 1rem;
-    right: 1rem;
-    left: 1rem;
   }
 
   .options-panel {
@@ -628,7 +626,6 @@
   .toggle-btn {
     position: fixed;
     bottom: 1rem;
-    right: 1rem;
     z-index: 10000;
   }
 
